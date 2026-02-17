@@ -1,0 +1,378 @@
+---
+import { products as productsJa } from "../data/products";
+import { products as productsEn } from "../data/products.en";
+
+type Lang = "ja" | "en";
+type Props = { lang?: Lang };
+const { lang = "ja" } = Astro.props;
+
+const products = lang === "en" ? productsEn : productsJa;
+
+const tabs = [
+  { key: "all", label: "ALL" },
+  { key: "exterior", label: "EXTERIOR" },
+  { key: "engine", label: "ENGINE" },
+  { key: "control", label: "CONTROL" },
+  { key: "accessories", label: "ACCESSORIES" },
+] as const;
+
+type TabKey = (typeof tabs)[number]["key"];
+const defaultTab: TabKey = "all";
+
+function getProductTabKey(p: any): TabKey | "all" {
+  return (p.tabKey ?? p.tab ?? p.categoryKey ?? "all") as any;
+}
+
+function slugify(s: string) {
+  return s
+    .toLowerCase()
+    .trim()
+    .replace(/['"]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function getProductSlug(p: any) {
+  if (p?.slug) return String(p.slug);
+  if (p?.title) return slugify(String(p.title));
+  return String(p?.id ?? "product");
+}
+
+function productHref(slug: string) {
+  return lang === "en" ? `/en/product/${slug}` : `/product/${slug}`;
+}
+
+function ariaLabel(title: string) {
+  return lang === "en" ? `Go to ${title}` : `${title}へ`;
+}
+---
+
+
+<div id="lineup-tabs" class="mx-auto w-full max-w-[1200px]">
+  <div id="lineup-tabbar" class="lineup-tabbar">
+    {tabs.map((t) => (
+      <button
+        type="button"
+        class="lineup-tab"
+        data-tab={t.key}
+        data-active={t.key === defaultTab ? "true" : "false"}
+        aria-pressed={t.key === defaultTab ? "true" : "false"}
+      >
+        {t.label}
+      </button>
+    ))}
+    <span id="lineup-indicator" class="lineup-indicator" aria-hidden="true"></span>
+  </div>
+
+  <div class="lineup-panels">
+    {tabs.map((t) => {
+      const list =
+        t.key === "all"
+          ? products
+          : products.filter((p) => getProductTabKey(p) === t.key);
+
+      return (
+        <div
+          class="lineup-panel"
+          data-panel={t.key}
+          data-active={t.key === defaultTab ? "true" : "false"}
+        >
+          <div class="lineup-grid">
+            {list.map((p) => (
+              <article class="lineup-card">
+                <div class="lineup-card-image">
+                  <img
+                    src={`/images/lineup/${t.key}/${p.id}.png`}
+                    alt={p.title}
+                    class="h-full w-full object-cover"
+                  />
+
+                  {p.badge === "NEW" && (
+                    <div class="badge badge-new"><span>NEW</span></div>
+                  )}
+                  {p.badge === "PRE-ORDER" && (
+                    <div class="badge badge-pre"><span>PRE-ORDER</span></div>
+                  )}
+                </div>
+
+                <div class="lineup-card-body">
+                  <p class="lineup-cat">{p.categoryLabel}</p>
+                  <h3 class="lineup-title">{p.title}</h3>
+
+                  <p class="lineup-desc whitespace-pre-line">{p.desc}</p>
+
+                  <div class="mt-auto flex items-end justify-between">
+                    <div class="lineup-tags">
+                      <div class="tag-list">
+                        <div class="tag-item">
+                          <span class="tag-dot" aria-hidden="true"></span>
+                          <span class="tag-text">{p.tags?.[0]}</span>
+                        </div>
+                        <div class="tag-item">
+                          <span class="tag-dot" aria-hidden="true"></span>
+                          <span class="tag-text">{p.tags?.[1]}</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <a
+  href={productHref(getProductSlug(p))}
+  class="lineup-arrow"
+  aria-label={ariaLabel(p.title)}
+>
+  →
+</a>
+
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      );
+    })}
+  </div>
+</div>
+
+<style>
+  :global(#lineup-tabs) {
+    padding-top: 70px;
+    padding-bottom: 140px;
+  }
+  :global(#lineup-tabs, #lineup-tabs *) {
+    box-sizing: border-box;
+  }
+  :global(#lineup-tabs .lineup-panels) {
+    margin-top: 60px;
+  }
+
+  .lineup-tabbar{
+    width: 100%;
+    max-width: 1200px;
+    height: 45px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #222222;
+  }
+
+  .lineup-tab{
+    position: relative;
+    appearance: none;
+    background: transparent;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    font-family: Oswald, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1;
+    letter-spacing: 1.6px;
+    color: #666666;
+    text-transform: uppercase;
+  }
+  .lineup-tab[data-active="true"]{ color: #ffffff; }
+
+  .lineup-indicator{
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
+    background: #D32F2F;
+    left: 0;
+    bottom: 0;
+    transform: translate(-50%, 50%);
+    pointer-events: none;
+  }
+
+  .lineup-panel{ display: none; }
+  .lineup-panel[data-active="true"]{ display: block; }
+
+  .lineup-grid{
+    width: 100%;
+    max-width: 1152px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 355.33px);
+    column-gap: 40px;
+    row-gap: 40px;
+  }
+
+  .lineup-card{
+    width: 355.33px;
+    border: 1px solid #222222;
+    background: #0A0A0A;
+  }
+
+  .lineup-card-image{
+    position: relative;
+    width: 100%;
+    height: 260px;
+    background: #000;
+  }
+
+  .badge{
+    position: absolute;
+    left: 14px;
+    top: 14px;
+    height: 28.16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+    font-family: Oswald, sans-serif;
+    font-weight: 700;
+    font-size: 11.2px;
+    line-height: 20.16px;
+    letter-spacing: 1.12px;
+    text-transform: uppercase;
+  }
+  .badge-new{ width: 42px; background:#D32F2F; color:#fff; }
+  .badge-pre{ width: 83px; background:#fff; color:#000; }
+
+  .lineup-card-body{
+    height: 217.59px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .lineup-cat{
+    margin: 0;
+    font-family: Oswald, sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 21.6px;
+    letter-spacing: 1.2px;
+    color: #D32F2F;
+    text-transform: uppercase;
+  }
+
+  .lineup-title{
+    margin: 0;
+    font-family: Oswald, sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0.8px;
+    color: #fff;
+  }
+
+  .lineup-desc{
+    margin-top: 6px;
+    font-family: "Noto Sans JP", sans-serif;
+    font-weight: 350;
+    font-size: 13.6px;
+    line-height: 24.48px;
+    letter-spacing: 0.8px;
+    color: #E0E0E0;
+  }
+
+  .lineup-tags{
+    width: 253px;
+    height: 37.59px;
+    border-top: 1px solid #6B6B6B;
+    padding-top: 15px;
+  }
+
+  /* ✅ タグ：丸と文字の中央揃え + gap 3px、タグ同士 18px */
+  .tag-list{
+    display: flex;
+    gap: 18px;
+  }
+  .tag-item{
+    display: inline-flex;
+    align-items: center; /* ← これで縦軸中央 */
+    gap: 3px;            /* ← 丸と文字の距離 */
+  }
+  .tag-dot{
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
+    background: #D32F2F;
+    flex: 0 0 auto;
+  }
+  .tag-text{
+    font-family: "Noto Sans JP", sans-serif;
+    font-weight: 350;
+    font-size: 12px;
+    line-height: 21.6px;
+    letter-spacing: 0.8px;
+    color: #E0E0E0;
+    white-space: nowrap;
+  }
+
+  .lineup-arrow{
+    width: 40px;
+    height: 40px;
+    border: 1px solid #444444;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Noto Sans JP", sans-serif;
+    font-weight: 350;
+    font-size: 16px;
+    line-height: 28.8px;
+    letter-spacing: 0.8px;
+    color: #fff;
+    text-decoration: none;
+  }
+</style>
+
+<script is:inline>
+  (() => {
+    const root = document.getElementById("lineup-tabs");
+    if (!root) return;
+
+    const tabbar = root.querySelector("#lineup-tabbar");
+    const indicator = root.querySelector("#lineup-indicator");
+    const tabs = Array.from(root.querySelectorAll(".lineup-tab"));
+    const panels = Array.from(root.querySelectorAll(".lineup-panel"));
+
+    if (!tabbar || !indicator || tabs.length === 0) return;
+
+    const setActive = (key) => {
+      tabs.forEach((btn) => {
+        const active = btn.dataset.tab === key;
+        btn.dataset.active = String(active);
+        btn.setAttribute("aria-pressed", String(active));
+      });
+
+      panels.forEach((p) => {
+        const active = p.dataset.panel === key;
+        p.dataset.active = String(active);
+      });
+
+      const activeBtn = tabs.find((b) => b.dataset.tab === key);
+      if (!activeBtn) return;
+
+      const barRect = tabbar.getBoundingClientRect();
+      const btnRect = activeBtn.getBoundingClientRect();
+      const centerX = (btnRect.left - barRect.left) + (btnRect.width / 2);
+      indicator.style.left = centerX + "px";
+    };
+
+    tabs.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const key = btn.dataset.tab;
+        if (!key) return;
+        setActive(key);
+      });
+    });
+
+    setActive("all");
+    window.addEventListener("resize", () => {
+      const current = tabs.find((t) => t.dataset.active === "true");
+      setActive(current?.dataset.tab || "all");
+    });
+    window.addEventListener("load", () => {
+      const current = tabs.find((t) => t.dataset.active === "true");
+      setActive(current?.dataset.tab || "all");
+    });
+  })();
+</script>

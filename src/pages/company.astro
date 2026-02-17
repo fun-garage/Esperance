@@ -1,0 +1,188 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import "../styles/company.css"; 
+---
+
+<BaseLayout title="会社概要 | Esperance">
+  <PageHero eyebrow="CORPORATE PROFILE" title="COMPANY" />
+
+  <section class="bg-[#050505]">
+    <div class="mx-auto max-w-[1440px] px-[24px] pt-[70px] pb-[140px]">
+      <section class="bg-[#050505]">
+        <!-- 外側：Tailwindでページ余白 -->
+        <div class="mx-auto max-w-[1440px] px-[24px] pt-[80px] pb-[120px]">
+          <!-- CEO message section -->
+          <section class="ceo-section" aria-label="CEO message">
+            <!-- Title -->
+            <h2 class="ceo-title">
+              INHERITING THE <span class="ceo-red">LEGEND.</span> PRIDE OF THE
+              <span class="ceo-red">MOLD.</span>
+            </h2>
+
+            <!-- Body -->
+            <div class="ceo-body">
+              <!-- Left: image -->
+              <div class="ceo-photo">
+                <img
+                  src="/images/company/img1-company.png"
+                  alt="CEO photo"
+                  class="ceo-photo-img"
+                />
+              </div>
+
+              <!-- Right: text -->
+              <div class="ceo-text">
+                <h3 class="ceo-subtitle">
+                  CAPTIVATING RIDERS WORLDWIDE<br />
+                  WITH JAPANESE CRAFTSMANSHIP.
+                </h3>
+
+                <div class="ceo-paragraphs">
+                  <p>
+                    Since our founding, SN KANAGATA has supported Japan's
+                    manufacturing industry through the design and production of
+                    precision molds. Our technical capability to pursue accuracy
+                    down to 0.001mm is our pride and identity.
+                  </p>
+
+                  <p>
+                    The "KATANA PROJECT" is a new challenge to deliver this
+                    technology directly to end-users. We revive famous
+                    motorcycles without blueprints using modern technology and
+                    evolve them further. We promise to deliver not just parts,
+                    but the "joy" and "peace of mind" of riding with your
+                    beloved machine.
+                  </p>
+                </div>
+
+                <div class="ceo-sign">
+                  <div class="ceo-role">CEO / REPRESENTATIVE</div>
+                  <div class="ceo-name">DAI SUNAGA</div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+      <section class="bg-[#050505]">
+        <!-- 外枠（Tailwind） -->
+        <div class="mx-auto max-w-[1440px] px-[220px] pt-[100px] pb-[160px] mt-[80px] mb-[80px]">
+
+          <!-- インナー -->
+          <div class="cp-inner">
+            <!-- 見出し -->
+            <div class="cp-heading">
+              <span class="cp-eyebrow">OVERVIEW</span>
+              <h2 class="cp-title">COMPANY PROFILE</h2>
+            </div>
+
+            <!-- 会社情報 -->
+            <div class="cp-table">
+              <div class="cp-row">
+                <div class="cp-left">COMPANY NAME</div>
+                <div class="cp-right">SN KANAGATA Co., Ltd.</div>
+              </div>
+              <div class="cp-row">
+                <div class="cp-left">REPRESENTATIVE</div>
+                <div class="cp-right">Dai Sunaga (Representative Director)</div>
+              </div>
+              <div class="cp-row">
+                <div class="cp-left">ADDRESS</div>
+                <div class="cp-right">
+                  1191-7 Fujigaya, Kashiwa, Chiba 277-0931, Japan
+                </div>
+              </div>
+              <div class="cp-row">
+                <div class="cp-left">BUSINESS</div>
+                <div class="cp-right">
+                  • Precision Mold Design & Manufacturing<br />
+                  • Plastic Injection Molding<br />
+                  • Planning, Manufacturing & Sales of Motorcycle Parts (KATANA Project)
+                </div>
+              </div>
+              <div class="cp-row">
+                <div class="cp-left">MAIN EQUIPMENT</div>
+                <div class="cp-right">
+                  5-Axis Machining Centers, EDM Machines, 3D Measuring Machines,
+                  etc.
+                </div>
+              </div>
+            </div>
+
+            <!-- Google Map -->
+            <div class="cp-map">
+              <iframe
+                title="SN KANAGATA location"
+                src="https://www.google.com/maps?q=1191-7%20Fujigaya,%20Kashiwa,%20Chiba%20277-0931,%20Japan&output=embed"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-[#050505]">
+        <!-- 大枠 -->
+        <div class="mx-auto max-w-[1440px] px-[220px] pt-[100px] pb-[160px]">
+          <!-- インナー -->
+          <div class="hist-inner">
+            <!-- 見出し -->
+            <div class="hist-heading">
+              <span class="hist-eyebrow">HISTORY</span>
+              <h2 class="hist-title">OUR HISTORY</h2>
+            </div>
+      
+            <!-- Timeline -->
+            <div class="timeline">
+              <!-- item 1 -->
+              <div class="timeline-item">
+                <span class="timeline-dot" aria-hidden="true"></span>
+                <div class="timeline-year">20XX</div>
+                <div class="timeline-body">
+                  <div class="timeline-head">ESTABLISHED SN KANAGATA</div>
+                  <div class="timeline-desc">Founded as a plastic mold factory in Tokyo.</div>
+                </div>
+              </div>
+      
+              <!-- item 2 -->
+              <div class="timeline-item">
+                <span class="timeline-dot" aria-hidden="true"></span>
+                <div class="timeline-year">201X</div>
+                <div class="timeline-body">
+                  <div class="timeline-head">INTRODUCED 5-AXIS MACHINING</div>
+                  <div class="timeline-desc">
+                    Strengthened capabilities for complex shapes and expanded orders for automotive parts.
+                  </div>
+                </div>
+              </div>
+      
+              <!-- item 3 -->
+              <div class="timeline-item">
+                <span class="timeline-dot" aria-hidden="true"></span>
+                <div class="timeline-year">2023</div>
+                <div class="timeline-body">
+                  <div class="timeline-head">LAUNCHED “KATANA PROJECT”</div>
+                  <div class="timeline-desc">
+                    Started the restoration business for vintage motorcycle parts using Reverse Engineering technology.
+                  </div>
+                </div>
+              </div>
+      
+              <!-- item 4 -->
+              <div class="timeline-item">
+                <span class="timeline-dot" aria-hidden="true"></span>
+                <div class="timeline-year">2025</div>
+                <div class="timeline-body">
+                  <div class="timeline-head">GLOBAL EXPANSION</div>
+                  <div class="timeline-desc">Opened Global EC site for the EU market.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    
+    </div>
+  </section>
+</BaseLayout>

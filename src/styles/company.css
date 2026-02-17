@@ -1,0 +1,385 @@
+/* company.css */
+
+/* =========================
+   CEO MESSAGE
+========================= */
+.ceo-section,
+.ceo-section * {
+  box-sizing: border-box;
+}
+
+.ceo-section {
+  width: 969px;
+  height: 595.000061px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.ceo-title {
+  margin: 0;
+  font-family: Oswald, sans-serif;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 54.9px;
+  letter-spacing: 5.61px;
+  text-align: center;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.ceo-red {
+  color: #d32f2f;
+}
+
+.ceo-body {
+  width: 969px;
+  height: 500px;
+  display: flex;
+  gap: 80px;
+  align-items: flex-start;
+}
+
+.ceo-photo {
+  width: 446px;
+  height: 500px;
+  overflow: hidden;
+}
+
+.ceo-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.ceo-text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.ceo-subtitle {
+  margin: 0;
+  font-family: Oswald, sans-serif;
+  font-weight: 400;
+  font-size: 28.8px;
+  line-height: 37.44px;
+  letter-spacing: 2.88px;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.ceo-paragraphs {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  font-family: Inter, system-ui, -apple-system, "Noto Sans JP", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28.8px;
+  color: #cccccc;
+}
+
+.ceo-paragraphs p {
+  margin: 0;
+}
+
+.ceo-sign {
+  width: 443px;
+  height: 63px;
+  margin-left: auto;
+  margin-top: 22px;
+  border-top: 2px solid #525252;
+  padding-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: right;
+}
+
+.ceo-role {
+  font-family: Oswald, sans-serif;
+  font-weight: 400;
+  font-size: 12.8px;
+  line-height: 23px;
+  letter-spacing: 1.28px;
+  color: #d32f2f;
+  text-transform: uppercase;
+}
+
+.ceo-name {
+  font-family: Oswald, sans-serif;
+  font-weight: 700;
+  font-size: 19.2px;
+  line-height: 34.56px;
+  letter-spacing: 0.8px;
+  color: #f0f0f0;
+  text-transform: uppercase;
+}
+
+/* CEO responsive */
+@media (max-width: 1100px) {
+  .ceo-section {
+    width: 100%;
+    height: auto;
+  }
+  .ceo-body {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    gap: 32px;
+  }
+  .ceo-photo {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 446 / 500;
+  }
+  .ceo-sign {
+    width: 100%;
+  }
+}
+
+/* =========================
+   COMPANY PROFILE
+========================= */
+.cp-inner,
+.cp-inner * {
+  box-sizing: border-box;
+}
+
+.cp-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.cp-heading {
+  width: 952px;
+  height: 87.51px;
+  padding-left: 20px;
+  border-left: 4px solid #d32f2f;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cp-eyebrow {
+  font-family: Oswald, sans-serif;
+  font-weight: 400;
+  font-size: 14.4px;
+  line-height: 25.92px;
+  letter-spacing: 1.44px;
+  color: #d32f2f;
+  text-transform: uppercase;
+}
+
+.cp-title {
+  margin: 0;
+  font-family: Oswald, sans-serif;
+  font-weight: 700;
+  font-size: 35.2px;
+  line-height: 56.32px;
+  letter-spacing: 3.52px;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.cp-table {
+  width: 952px;
+  border-top: 1px solid #222;
+}
+
+.cp-row {
+  display: flex;
+}
+
+.cp-left {
+  width: 200px;
+  padding: 20px 0;
+  border-bottom: 1px solid #222;
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 28.8px;
+  letter-spacing: 0.8px;
+  color: #ffffff;
+}
+
+.cp-right {
+  width: 752px;
+  padding: 20px 0 20px 40px;
+  border-bottom: 1px solid #222;
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 28.8px;
+  letter-spacing: 0.8px;
+  color: #ffffff;
+}
+
+.cp-map {
+  width: 950px;
+  height: 398px;
+  overflow: hidden;
+}
+
+.cp-map iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* CP responsive */
+@media (max-width: 1100px) {
+  .cp-heading,
+  .cp-table,
+  .cp-map {
+    width: 100%;
+  }
+
+  .cp-row {
+    flex-direction: column;
+  }
+
+  .cp-left,
+  .cp-right {
+    width: 100%;
+    padding-left: 0;
+  }
+}
+
+/* =========================
+   HISTORY / TIMELINE
+========================= */
+.hist-inner,
+.hist-inner * {
+  box-sizing: border-box;
+}
+
+.hist-inner {
+  max-width: 1000px;
+  margin: 200px auto 100px auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.hist-heading {
+  width: 952px;
+  height: 84.99px;
+  padding-left: 20px;
+  border-left: 4px solid #d32f2f;
+  display: flex;
+  flex-direction: column;
+  gap: 4.99px;
+}
+
+.hist-eyebrow {
+  font-family: Oswald, sans-serif;
+  font-weight: 400;
+  font-size: 14.4px;
+  line-height: 23px;
+  color: #d32f2f;
+  text-transform: uppercase;
+}
+
+.hist-title {
+  margin: 0;
+  font-family: Oswald, sans-serif;
+  font-weight: 700;
+  font-size: 35.2px;
+  line-height: 56.32px;
+  letter-spacing: 3.52px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.timeline {
+  width: 932px;
+  height: 583.36px;
+  padding-left: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  border-left: 1px solid #333333;
+  position: relative;
+}
+
+.timeline-item {
+  width: 881px;
+  height: 100.84px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-left: 50px;
+}
+
+.timeline-year {
+  font-family: Oswald, sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 38.4px;
+  color: #d32f2f;
+}
+
+.timeline-body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.timeline-dot {
+  width: 15px;
+  height: 15px;
+  border-radius: 7.5px;
+  background: #000;
+  border: 2px solid #d32f2f;
+  position: absolute;
+  left: -56px;
+  top: 6px;
+}
+
+.timeline-head {
+  font-family: Oswald, sans-serif;
+  font-weight: 600;
+  font-size: 17.6px;
+  line-height: 28.16px;
+  letter-spacing: 0.88px;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.timeline-desc {
+  font-family: Inter, system-ui, -apple-system, "Noto Sans JP", sans-serif;
+  font-weight: 400;
+  font-size: 15.2px;
+  line-height: 24.32px;
+  color: #888888;
+}
+
+/* History responsive */
+@media (max-width: 1100px) {
+  .hist-heading,
+  .timeline,
+  .timeline-item {
+    width: 100%;
+  }
+
+  .timeline {
+    height: auto;
+  }
+
+  .timeline-item {
+    height: auto;
+    /* grid-template-columns はflexなので効かないため削除が正 */
+  }
+}

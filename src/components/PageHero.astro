@@ -1,0 +1,24 @@
+---
+type Props = { eyebrow: string; title: string };
+const { eyebrow, title } = Astro.props as Props;
+---
+
+<section
+  class="w-full flex items-center justify-center overflow-hidden"
+  style="
+    height:293px;
+    min-height:293px;
+    max-height:293px;
+    background: radial-gradient(52.38% 167.63% at 50% 50%, #1A1A1A 0%, #000000 100%);
+  "
+>
+  <div class="w-full max-w-[1440px] text-center px-[24px]">
+    <p class="m-0 font-[Oswald] text-[16px] font-normal leading-[28.8px] tracking-[3.2px] text-[#D32F2F] uppercase">
+      {eyebrow}
+    </p>
+
+    <h1 class="m-0 mt-[12px] font-[Noto_Serif_JP] text-[48px] font-bold leading-[86.4px] tracking-[0.8px] text-[#F0F0F0]">
+      {title}
+    </h1>
+  </div>
+</section>

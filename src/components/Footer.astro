@@ -1,0 +1,135 @@
+---
+const { lang = "ja" } = Astro.props;
+const isEn = lang === "en";
+
+// EN用リンク
+const hrefs = isEn
+  ? {
+      technology: "/en/technology",
+      lineup: "/en/lineup",
+      facility: "/en/facility",
+      company: "/en/company",
+      contact: "/en/contact",
+      privacy: "/en/privacy",
+    }
+  : {
+      technology: "/technology",
+      lineup: "/lineup",
+      facility: "/facility",
+      company: "/company",
+      contact: "/contact",
+      privacy: "/privacy",
+    };
+---
+
+<footer class="w-full bg-[#050505]">
+  <div class="mx-auto max-w-[1440px] px-[80px] py-[60px]">
+    <div class="flex w-full items-start justify-between">
+      <!-- 左：ロゴ＋住所 -->
+      <div class="flex flex-col gap-[18px]">
+        <img src="/images/logo-footer.svg" alt="Esperance" class="h-[30px] w-auto" />
+
+        {isEn ? (
+          <p class="footer-en-address">
+            1191-7 Fujigaya, Kashiwa, Chiba 277-0931, Japan
+          </p>
+        ) : (
+          <div class="font-[Noto_Sans_JP] text-[16px] font-normal leading-[23px] tracking-[0.8px] text-white">
+            <p>〒277-0931</p>
+            <p>千葉県柏市藤ケ谷1191-7</p>
+            <p>TEL: 04-7190-0515</p>
+          </div>
+        )}
+      </div>
+
+      <!-- 右：ナビ（2列） -->
+      <div class="flex gap-[40px]">
+        <!-- CONTENTS -->
+        <div class="w-[274.73px]">
+          <p class={isEn ? "footer-en-navhead" : "font-[Noto_Sans_JP] text-[14.4px] font-bold leading-[28.8px] tracking-[0.8px] text-[#D32F2F]"}>
+            • CONTENTS
+          </p>
+
+          <ul class="mt-[8px] space-y-[6px]">
+            <li class="flex items-center gap-[10px]">
+              <span class="h-[4px] w-[4px] rounded-full bg-[#888888]"></span>
+              <a href={hrefs.technology} class={isEn ? "footer-en-navlink" : "font-[Noto_Sans_JP] text-[14.4px] font-[350] leading-[28.8px] tracking-[0.8px] text-white underline underline-offset-2"}>
+                {isEn ? "TECHNOLOGY" : "技術紹介"}
+              </a>
+            </li>
+
+            <li class="flex items-center gap-[10px]">
+              <span class="h-[4px] w-[4px] rounded-full bg-[#888888]"></span>
+              <a href={hrefs.lineup} class={isEn ? "footer-en-navlink" : "font-[Noto_Sans_JP] text-[14.4px] font-[350] leading-[28.8px] tracking-[0.8px] text-white underline underline-offset-2"}>
+                {isEn ? "LINEUP" : "製品一覧"}
+              </a>
+            </li>
+
+            <li class="flex items-center gap-[10px]">
+              <span class="h-[4px] w-[4px] rounded-full bg-[#888888]"></span>
+              <a href={hrefs.facility} class={isEn ? "footer-en-navlink" : "font-[Noto_Sans_JP] text-[14.4px] font-[350] leading-[28.8px] tracking-[0.8px] text-white underline underline-offset-2"}>
+                {isEn ? "FACILITY" : "設備紹介"}
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- COMPANY -->
+        <div class="w-[274.73px]">
+          <p class={isEn ? "footer-en-navhead" : "font-[Noto_Sans_JP] text-[14.4px] font-bold leading-[28.8px] tracking-[0.8px] text-[#D32F2F]"}>
+            • COMPANY
+          </p>
+
+          <ul class="mt-[8px] space-y-[6px]">
+            <li class="flex items-center gap-[10px]">
+              <span class="h-[4px] w-[4px] rounded-full bg-[#888888]"></span>
+              <a href={hrefs.company} class={isEn ? "footer-en-navlink" : "font-[Noto_Sans_JP] text-[14.4px] font-[350] leading-[28.8px] tracking-[0.8px] text-white underline underline-offset-2"}>
+                {isEn ? "COMPANY" : "会社案内"}
+              </a>
+            </li>
+
+            <li class="flex items-center gap-[10px]">
+              <span class="h-[4px] w-[4px] rounded-full bg-[#888888]"></span>
+              <a href={hrefs.contact} class={isEn ? "footer-en-navlink" : "font-[Noto_Sans_JP] text-[14.4px] font-[350] leading-[28.8px] tracking-[0.8px] text-white underline underline-offset-2"}>
+                {isEn ? "CONTACT" : "お問い合わせ"}
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <p class="mt-[70px] text-center font-[Oswald] text-[11.2px] font-normal leading-[20.16px] tracking-[1.12px] text-white uppercase">
+      © 2025 SN KANAGATA CO., LTD. ALL RIGHTS RESERVED.
+    </p>
+  </div>
+
+  <style>
+    .footer-en-address{
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+      font-weight: 500;
+      font-size: 16px;
+      letter-spacing: 0.8px;
+      color: #ffffff;
+      line-height: 23px; /* Figmaの0pxは実装だと潰れるので、見た目合わせでここが安定 */
+    }
+    .footer-en-navhead{
+      font-family: Oswald, sans-serif;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 28.8px;
+      letter-spacing: 0.8px;
+      color: #D32F2F;
+    }
+    .footer-en-navlink{
+      font-family: Oswald, sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 19.87px;
+      letter-spacing: 1.1px;
+      color: #ffffff;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+  </style>
+</footer>

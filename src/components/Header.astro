@@ -1,0 +1,59 @@
+---
+import { getLangFromPath, withLangPrefix, type Lang } from "../lib/i18n";
+
+const lang: Lang = getLangFromPath(Astro.url.pathname);
+
+const navItems = [
+  { href: "/technology", label: "TECHNOLOGY" },
+  { href: "/lineup", label: "LINEUP" },
+  { href: "/facility", label: "FACILITY" },
+  { href: "/company", label: "COMPANY" },
+  { href: "/contact", label: "CONTACT" },
+];
+
+const nav = navItems.map((item) => ({
+  ...item,
+  href: withLangPrefix(item.href, lang),
+}));
+
+const homeHref = withLangPrefix("/", lang);
+
+// UIはまだ無いけど機能だけ（後でタブを置ける）
+const switchToJa = withLangPrefix(Astro.url.pathname, "ja");
+const switchToEn = withLangPrefix(Astro.url.pathname, "en");
+---
+
+<header
+  class="sticky top-0 z-[1000] h-[85px] w-full border-b border-white/10 bg-[#050505]/90 backdrop-blur-[10px]"
+>
+  <div
+    class="mx-auto flex h-[85px] max-w-[1440px] items-center justify-between px-[80px] pt-[19px] pb-[20px]
+           max-[960px]:px-[24px]"
+  >
+    <a href={homeHref} aria-label="Esperance Home" class="inline-flex items-center">
+      <img src="/images/logo.svg" alt="Esperance" class="h-[28px] w-auto" />
+    </a>
+
+    <nav aria-label="Primary" class="h-[22.3px] w-[529px] max-[960px]:w-auto">
+      <ul class="m-0 flex list-none items-center justify-end gap-[28px] p-0 max-[960px]:gap-[18px]">
+        {nav.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class="font-[Oswald] text-[20px] font-medium leading-[19.87px] tracking-[1.1px] text-[#E3E3E3]
+                     hover:opacity-85 max-[960px]:text-[16px] max-[960px]:tracking-[0.8px]"
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <!-- 今はデザインに無いので非表示（でもURLは用意済み） -->
+    <div class="hidden">
+      <a href={switchToJa}>JA</a>
+      <a href={switchToEn}>EN</a>
+    </div>
+  </div>
+</header>

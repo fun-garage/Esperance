@@ -1,17 +1,384 @@
 ---
-
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/top.css"; 
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="Esperance">
+  <!-- Main Visual -->
+  <section class="mx-auto max-w-[1440px]">
+    <div
+      class="relative h-[900px] w-full bg-cover bg-center"
+      style="background-image: url('/images/top/main.png');"
+    >
+      <!-- 見出し＋ボタン枠（1169幅、左136、上609） -->
+      <div
+        class="absolute left-[136px] top-[609px] flex w-[1169px] items-end justify-between"
+      >
+        <!-- 左側テキスト枠（668×220） -->
+        <div class="flex w-[668px] flex-col gap-2">
+          <p
+            class="font-[Oswald] text-[19.2px] font-normal leading-[34.56px] tracking-[5.76px] text-[#D32F2F]"
+          >
+            THE ULTIMATE PARTS FOR KATANA.
+          </p>
+
+		  <h1 class="font-[Noto_Serif_JP] text-[64px] font-bold leading-[78.4px] tracking-[0.8px] !text-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)]">
+			KATANAのパーツを、<br />
+			創り出す。
+		  </h1>
+		
+        </div>
+
+        <!-- 右下ボタン（293×58 / padding 15 50） -->
+		<a
+		href="/lineup"
+		class="inline-flex h-[58px] w-[293px] items-center justify-center border border-[#D32F2F] bg-[#D32F2F]/30 px-[40px] py-[15px]
+       font-[Noto_Sans_JP] text-[16px] font-bold leading-[25.92px] tracking-[1.44px]
+       !text-white visited:!text-white"
+	  >
+		製品ラインナップを見る
+	  </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR TECHNOLOGY -->
+<section class="bg-[#050505]">
+	<div
+	  class="mx-auto max-w-[1200px] border-b border-white/10 px-[24px] py-[70px]"
+	>
+	  <div class="flex flex-col gap-[70px]">
+		<!-- インナー1 -->
+		<div class="flex gap-[30px]">
+		  <!-- 左の縦ボーダー -->
+		  <div class="h-[191px] w-[4px] bg-[#D32F2F]"></div>
+  
+		  <!-- テキスト群 -->
+		  <div class="flex flex-col gap-[5px]">
+			<p
+			  class="font-[Oswald] text-[14.4px] font-normal leading-[25.92px] tracking-[1.44px] text-[#D32F2F] uppercase"
+			>
+			  OUR TECHNOLOGY
+			</p>
+  
+			<h2
+			  class="font-[Noto_Sans_JP] text-[40px] font-bold leading-[48px] tracking-[0.8px] text-white"
+			>
+			  不可能を可能にする<br />
+			  ３つのコア技術
+			</h2>
+  
+			<p
+			  class="mt-[10px] font-[Noto_Sans_JP] text-[15.2px] font-[350] leading-[27.36px] tracking-[0.8px] text-[#AAAAAA]"
+			>
+			  図面の存在しない旧車パーツの復刻。それを実現するのは、 最新のデジタル解析と<br />
+			  熟練の職人技の融合です。
+			</p>
+		  </div>
+		</div>
+  
+		<!-- インナー2：カード3枚 -->
+		<div class="flex gap-[40px]">
+		  <!-- Card 01 -->
+		  <div
+			class="relative h-[300.7px] w-[357.33px] border border-[#222222] bg-[#0F0F0F] px-[30px] pb-[40px] pt-[60px]"
+		  >
+			<div
+			  class="absolute right-[30px] top-[40px] font-[Oswald] text-[48px] font-bold leading-[48px] tracking-[0.8px] text-[#222222]"
+			>
+			  01
+			</div>
+  
+			<div class="flex flex-col gap-[20px]">
+			  <div class="flex flex-col gap-[8px]">
+				<p
+				  class="font-[Oswald] text-[12.8px] font-bold leading-[23px] tracking-[0.8px] text-[#D32F2F] uppercase"
+				>
+				  REVERSE ENGINEERING
+				</p>
+				<h3
+				  class="font-[Noto_Sans_JP] text-[22.4px] font-bold leading-[40.32px] tracking-[0.8px] text-white"
+				>
+				  リバースエンジニアリング
+				</h3>
+			  </div>
+  
+			  <p
+				class="font-[Noto_Sans_JP] text-[14.4px] font-[350] leading-[27.36px] tracking-[0.8px] text-[#E0E0E0]"
+			  >
+				現存する純正パーツを3Dスキャンし、点群データからCADデータを再構築。摩耗や変形まで解析し、
+				「あるべき姿（新品当時の形状）」をデジタル上で復元します。
+			  </p>
+			</div>
+		  </div>
+  
+		  <!-- Card 02 -->
+		  <div
+			class="relative h-[300.7px] w-[357.33px] border border-[#222222] bg-[#0F0F0F] px-[30px] pb-[40px] pt-[60px]"
+		  >
+			<div
+			  class="absolute right-[30px] top-[40px] font-[Oswald] text-[48px] font-bold leading-[48px] tracking-[0.8px] text-[#222222]"
+			>
+			  02
+			</div>
+  
+			<div class="flex flex-col gap-[20px]">
+			  <div class="flex flex-col gap-[8px]">
+				<p
+				  class="font-[Oswald] text-[12.8px] font-bold leading-[23px] tracking-[0.8px] text-[#D32F2F] uppercase"
+				>
+				  ULTRA-PRECISION MOLD
+				</p>
+				<h3
+				  class="font-[Noto_Sans_JP] text-[22.4px] font-bold leading-[40.32px] tracking-[0.8px] text-white"
+				>
+				  超精密金型設計
+				</h3>
+			  </div>
+  
+			  <p
+				class="font-[Noto_Sans_JP] text-[14.4px] font-[350] leading-[27.36px] tracking-[0.8px] text-[#E0E0E0]"
+			  >
+				復元データに基づき、ミクロン単位の精度で金型を設計。スライドコアを駆使した複雑形状の実現や、
+				鏡面仕上げによる美しい表面処理を追求しています。
+			  </p>
+			</div>
+		  </div>
+  
+		  <!-- Card 03 -->
+		  <div
+			class="relative h-[300.7px] w-[357.33px] border border-[#222222] bg-[#0F0F0F] px-[30px] pb-[40px] pt-[60px]"
+		  >
+			<div
+			  class="absolute right-[30px] top-[40px] font-[Oswald] text-[48px] font-bold leading-[48px] tracking-[0.8px] text-[#222222]"
+			>
+			  03
+			</div>
+  
+			<div class="flex flex-col gap-[20px]">
+			  <div class="flex flex-col gap-[8px]">
+				<p
+				  class="font-[Oswald] text-[12.8px] font-bold leading-[23px] tracking-[0.8px] text-[#D32F2F] uppercase"
+				>
+				  MATERIAL ANALYSIS
+				</p>
+				<h3
+				  class="font-[Noto_Sans_JP] text-[22.4px] font-bold leading-[40.32px] tracking-[0.8px] text-white"
+				>
+				  素材・流動解析
+				</h3>
+			  </div>
+  
+			  <p
+				class="font-[Noto_Sans_JP] text-[14.4px] font-[350] leading-[27.36px] tracking-[0.8px] text-[#E0E0E0]"
+			  >
+				当時の素材より高性能な現代の樹脂・金属素材を選定。金型内での樹脂の流れ（流動解析）を
+				シミュレーションし、強度不足やウェルドラインを防ぎます。
+			  </p>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </section>
+
+  <!-- THE COLLECTION -->
+<section class="bg-[#050505]">
+	<!-- 大枠 1440相当 -->
+	<div class="mx-auto max-w-[1440px] py-[80px]">
+	  <!-- インナー1（1152幅） -->
+	  <div class="mx-auto flex max-w-[1152px] flex-col gap-[80px] px-[24px]">
+		<!-- 見出しブロック（左に赤ライン） -->
+		<div class="flex gap-[30px]">
+		  <div class="h-[191px] w-[4px] bg-[#D32F2F]"></div>
+  
+		  <div class="flex flex-col gap-[5px]">
+			<p class="font-[Oswald] text-[14.4px] font-normal leading-[25.92px] tracking-[1.44px] text-[#D32F2F] uppercase">
+			  THE COLLECTION
+			</p>
+  
+			<h2 class="font-[Noto_Sans_JP] text-[40px] font-bold leading-[48px] tracking-[0.8px] text-white">
+			  製品紹介
+			</h2>
+  
+			<p class="mt-[10px] font-[Noto_Sans_JP] text-[15.2px] font-[350] leading-[27.36px] tracking-[0.8px] text-[#AAAAAA]">
+			  SN金型が送り出す、渾身のKATANAサードパーティパーツ。
+			</p>
+		  </div>
+		</div>
+  
+		<!-- バイク背景＋製品配置（相対配置） -->
+		<div class="relative w-full">
+		  <!-- バイク画像 -->
+		  <img
+			src="/images/top/motorbike.png"
+			alt="Motorbike"
+			class="mx-auto block w-full max-w-[720px] opacity-95"
+		  />
+  
+		  <!-- 左の製品（画像＋名前） -->
+		  <div class="collection-left">
+			<div class="h-[140px] w-full bg-white/95"></div>
+		  
+			<p class="mt-[12px] font-[Noto_Sans_JP] text-[16px] font-bold leading-[16px] text-white">
+			  製品名が入ります
+			</p>
+		  
+			<img
+			  src="/images/top/under-line-left.svg"
+			  alt=""
+			  class="collection-underline-left"
+			/>
+		  </div>
+		  
+  
+		  <!-- 右の製品（画像＋名前） -->
+		  <div class="collection-right text-left">
+			<div class="h-[140px] w-full bg-white/95"></div>
+		  
+			<p class="mt-[12px] font-[Noto_Sans_JP] text-[16px] font-bold leading-[16px] text-white">
+			  製品名が入ります
+			</p>
+		  
+			<img
+			  src="/images/top/under-line-right.svg"
+			  alt=""
+			  class="collection-underline-right"
+			/>
+		  </div>
+		</div>
+	  </div>
+  
+	  <!-- インナー2（下の2カラム：1440幅/ボーダー） -->
+	  <div class="mt-[80px] w-full border-y border-[#222222]">
+		<div class="mx-auto grid max-w-[1440px] grid-cols-2 gap-[1px] bg-[#222222]">
+		  <!-- 左ボックス -->
+		  <div
+			class="h-[450px] bg-gradient-to-br from-[#0A0A0A] to-[#1A1A1A] p-[50px]"
+		  >
+			<p class="font-[Oswald] text-[12px] font-normal leading-[21.6px] tracking-[1.2px] text-[#D32F2F] uppercase">
+			  EXTERIOR PARTS
+			</p>
+  
+			<h3 class="mt-[10px] font-[Oswald] text-[28.8px] font-bold leading-[51.84px] tracking-[0.8px] text-white">
+			  TANK COVER TYPE-S
+			</h3>
+  
+			<p class="mt-[14px] font-[Noto_Sans_JP] text-[13.6px] font-[350] leading-[24.48px] tracking-[0.8px] text-[#888888]">
+			  純正形状を忠実に再現しつつ、素材変更により軽量化を実現。裏面のリブ形状を見直し、剛性も向上させています。
+			</p>
+		  </div>
+  
+		  <!-- 右ボックス -->
+		  <div
+			class="h-[450px] bg-gradient-to-br from-[#050505] to-[#111111] p-[50px]"
+		  >
+			<p class="font-[Oswald] text-[12px] font-normal leading-[21.6px] tracking-[1.2px] text-[#D32F2F] uppercase">
+			  ENGINE PARTS
+			</p>
+  
+			<h3 class="mt-[10px] font-[Oswald] text-[28.8px] font-bold leading-[51.84px] tracking-[0.8px] text-white">
+			  BILLET CLUTCH COVER
+			</h3>
+  
+			<p class="mt-[14px] font-[Noto_Sans_JP] text-[13.6px] font-[350] leading-[24.48px] tracking-[0.8px] text-[#888888]">
+			  アルミ削り出しによるクラッチカバー。放熱性を高める独自のフィン形状を採用し、機能美を追求しました。
+			</p>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </section>
+
+  <!-- OUR EQUIPMENT -->
+<section class="bg-[#050505]">
+	<div class="mx-auto max-w-[1153px] px-[24px] py-[48px]">
+	  <div class="mx-auto flex max-w-[1105px] gap-[60px]">
+		<!-- 左：画像 -->
+		<div class="relative h-[500px] w-[522.5px]">
+			<!-- L字ボーダーを少し内側に -->
+			<div class="absolute left-[-10px] top-[-10px] h-[102px] w-[102px] border-l-2 border-t-2 border-[#D32F2F]"></div>
+		  
+			<img
+			  src="/images/top/img-machine.png"
+			  alt="Machine"
+			  class="h-full w-full object-cover"
+			/>
+		  </div>
+		  
+  
+
+<!-- 右：テキスト -->
+<div class="flex w-[522.5px] flex-col gap-[30px]">
+  
+	<!-- 見出しブロック（左ボーダー付き） -->
+	<div
+	  class="h-[191.53px] border-l-[4px] border-[#D32F2F] pl-[24px] flex flex-col justify-between"
+	>
+	  <div>
+		<p class="font-[Oswald] text-[16px] font-normal leading-[25.6px] tracking-[1.6px] text-[#D32F2F] uppercase">
+		  OUR EQUIPMENT
+		</p>
+  
+		<h2 class="mt-[4px] font-[Oswald] text-[48px] font-bold leading-[76.8px] tracking-[4.8px] text-white uppercase">
+		  最先端設備
+		</h2>
+	  </div>
+  
+	  <p class="font-[Noto_Sans_JP] text-[14.4px] font-[350] leading-[23px] text-[#888888]">
+		伝統の職人技を支えるのは、世界最高水準のマシン群。<br />
+		5軸マシニングセンタによる複雑形状の削り出しから、ミクロン単位の3次元<br />
+		測定まで。 妥協なき品質を生み出す「武器庫」がここにある。
+	  </p>
+	</div>
+  
+  
+		  <!-- リスト（上ボーダー＋各行下ボーダー） -->
+		  <div class="w-full border-t border-[#333333]">
+			<!-- row 1 -->
+			<div class="flex items-center justify-between border-b border-[#333333] py-[18px]">
+			  <p class="font-[Oswald] text-[17.6px] font-bold leading-[28.16px] tracking-[0.88px] text-white">
+				5-AXIS MACHINING
+			  </p>
+			  <p class="font-[Noto_Sans_JP] text-[13.6px] font-[350] leading-[21.76px] text-[#888888]">
+				MAKINO D500 / 複雑形状加工
+			  </p>
+			</div>
+  
+			<!-- row 2 -->
+			<div class="flex items-center justify-between border-b border-[#333333] py-[18px]">
+			  <p class="font-[Oswald] text-[17.6px] font-bold leading-[28.16px] tracking-[0.88px] text-white">
+				3D SCANNER
+			  </p>
+			  <p class="font-[Noto_Sans_JP] text-[13.6px] font-[350] leading-[21.76px] text-[#888888]">
+				KEYENCE VL-700 / リバースエンジニアリング
+			  </p>
+			</div>
+  
+			<!-- row 3 -->
+			<div class="flex items-center justify-between border-b border-[#333333] py-[18px]">
+			  <p class="font-[Oswald] text-[17.6px] font-bold leading-[28.16px] tracking-[0.88px] text-white">
+				WIRE EDM
+			  </p>
+			  <p class="font-[Noto_Sans_JP] text-[13.6px] font-[350] leading-[21.76px] text-[#888888]">
+				SODICK / 精密放電加工
+			  </p>
+			</div>
+		  </div>
+  
+		  <!-- リンク -->
+		  <a
+			href="/facility"
+			class="w-fit font-[Oswald] text-[16px] font-semibold leading-[25.6px] tracking-[1.6px] text-[#D32F2F] underline underline-offset-4"
+		  >
+			VIEW ALL EQUIPMENT →
+		  </a>
+		</div>
+	  </div>
+	</div>
+  </section>
+  
+  
+  
+  
+</BaseLayout>

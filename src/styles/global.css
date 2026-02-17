@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+/* ✅ Tailwind v4: どのファイルをスキャンするか明示（Astroで必須級） */
+@source "../**/*.{astro,html,js,ts,jsx,tsx,md,mdx}";
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+

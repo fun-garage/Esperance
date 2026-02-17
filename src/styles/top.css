@@ -1,0 +1,25 @@
+/* =========================
+   THE COLLECTION : position control
+========================= */
+
+/* 左ブロック */
+.collection-left{
+    @apply absolute left-[0px] top-[70px] w-[230px];
+  }
+  
+  /* 右ブロック */
+  .collection-right{
+    @apply absolute right-[0px] top-[140px] w-[230px] text-left;
+  }
+  
+  /* 左アンダーライン */
+  .collection-underline-left{
+    @apply mt-[10px] w-[360px] max-w-none;
+    transform: translate(0px, 0px); /* ← (X, Y) で左右・上下 */
+  }
+  
+  .collection-underline-right{
+    @apply mt-[10px] w-[360px] max-w-none;
+    transform: translate(-85px, 0px); /* ← (X, Y) で左右・上下 */
+  }
+  

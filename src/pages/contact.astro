@@ -1,0 +1,114 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import "../styles/contact.css"; 
+---
+
+<BaseLayout title="お問い合わせ | Esperance">
+  <PageHero eyebrow="GET IN TOUCH" title="お問い合わせ" />
+
+  <section class="bg-[#050505]">
+    <div class="mx-auto max-w-[1440px] px-[24px] pb-[140px]">
+      <section class="contact-form" aria-label="Contact form">
+        <div class="contact-form-inner">
+          <!-- Left -->
+          <div class="contact-left">
+            <h2 class="contact-lead">伝説への第一歩を、ここから。</h2>
+
+            <p class="contact-note">
+              製品に関するご質問、金型製作のご相談、取材の<br />
+              ご依頼など、お気軽にお問い合わせください。 海<br />
+              外への発送や、オーダーメイドの試作につきまし<br />
+              ても、こちらから承っております。
+            </p>
+
+            <div class="contact-info">
+              <div class="contact-info-row">
+                <div class="contact-info-label">PHONE</div>
+                <div class="contact-info-value">04-7190-0515</div>
+              </div>
+
+              <div class="contact-info-row">
+                <div class="contact-info-label">EMAIL</div>
+                <div class="contact-info-value">info@sn-kanagata.co.jp</div>
+              </div>
+
+              <div class="contact-info-row">
+                <div class="contact-info-label">ADDRESS</div>
+                <div class="contact-info-value">
+                  〒277-0931<br />
+                  千葉県柏市藤ヶ谷1191-7
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right -->
+          <div class="contact-right">
+            <form class="contact-fields" method="post" action="#">
+              <div class="field">
+                <label class="field-label" for="name">
+                  お名前 / NAME <span class="field-req">*</span>
+                </label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  class="field-input"
+                  placeholder="例：山田 太郎 / Taro Yamada"
+                  required
+                />
+              </div>
+
+              <div class="field">
+                <label class="field-label" for="email">
+                  メールアドレス / EMAIL <span class="field-req">*</span>
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  class="field-input"
+                  placeholder="example@domain.com"
+                  required
+                />
+              </div>
+
+              <div class="field">
+                <label class="field-label" for="subject">
+                  お問い合わせ種別 / SUBJECT
+                </label>
+                <div class="select-wrap">
+                  <select id="subject" name="subject" class="field-select">
+                    <option value="about-products" selected>
+                      製品について / About Products
+                    </option>
+                    <option value="manufacturing">製造・加工について / Manufacturing</option>
+                    <option value="media">取材・メディア / Media</option>
+                    <option value="other">その他 / Other</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field">
+                <label class="field-label" for="message">
+                  お問い合わせ内容 / MESSAGE <span class="field-req">*</span>
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  class="field-textarea"
+                  placeholder="ご自由にご記入ください。"
+                  required
+                ></textarea>
+              </div>
+
+              <button type="submit" class="contact-submit">SEND MESSAGE</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+  </section>
+
+</BaseLayout>

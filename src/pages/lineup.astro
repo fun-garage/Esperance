@@ -1,0 +1,15 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import LineupTabs from "../components/LineupTabs.astro";
+---
+
+<BaseLayout title="製品一覧 | Esperance">
+  <PageHero eyebrow="THE COLLECTION" title="製品一覧" />
+
+  <section class="bg-[#050505]">
+    <div class="mx-auto max-w-[1440px] px-[24px] pb-[140px] pt-[70px]">
+      <LineupTabs />
+    </div>
+  </section>
+</BaseLayout>

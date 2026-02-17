@@ -1,0 +1,53 @@
+export const products: Product[] = [
+    {
+      id: 1,
+      slug: "tank-cover-type-s",
+      categoryLabel: "EXTERIOR PARTS",
+      title: "TANK COVER TYPE-S",
+      desc: "Text\nText",
+      tags: ["ABS Resin", "Bolt-on"],
+      badge: "NEW",
+    },
+    {
+      id: 2,
+      slug: "billet-clutch-cover",
+      categoryLabel: "ENGINE PARTS",
+      title: "BILLET CLUTCH COVER",
+      desc: "Text\nText",
+      tags: ["AL-6061", "Anodized"],
+    },
+    {
+      id: 3,
+      slug: "carbon-tail-cowl",
+      categoryLabel: "EXTERIOR PARTS",
+      title: "CARBON TAIL COWL",
+      desc: "Text\nText",
+      tags: ["Dry Carbon", "Matte/Gloss"],
+      badge: "PRE-ORDER",
+    },
+    {
+      id: 4,
+      slug: "racing-rear-sets",
+      categoryLabel: "CONTROL PARTS",
+      title: "RACING REAR SETS",
+      desc: "Text\nText",
+      tags: ["4-Positions", "Bearing Pivot"],
+    },
+    {
+      id: 5,
+      slug: "aero-screen-long",
+      categoryLabel: "EXTERIOR PARTS",
+      title: "AERO SCREEN LONG",
+      desc: "Text\nText",
+      tags: ["Polycarbonate", "Smoke/Clear"],
+    },
+    {
+      id: 6,
+      slug: "fender-eliminator-kit",
+      categoryLabel: "EXTERIOR PARTS",
+      title: "FENDER ELIMINATOR KIT",
+      desc: "Text\nText",
+      tags: ["Steel Black", "LED Light"],
+    },
+  ];
+  

@@ -1,0 +1,17 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import PageHero from "../../../components/PageHero.astro";
+import ProductHeroVisual from "../../../components/ProductHeroVisual.astro";
+
+const { slug } = Astro.params;
+---
+
+<BaseLayout title={`Product | Esperance`}>
+  <PageHero eyebrow="THE COLLECTION" title="PRODUCT" />
+
+  <section class="bg-[#050505]">
+    <div class="mx-auto max-w-[1440px] px-[24px] pt-[70px] pb-[120px]">
+      <ProductHeroVisual title="Text" />
+    </div>
+  </section>
+</BaseLayout>

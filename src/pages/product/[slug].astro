@@ -1,0 +1,357 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ProductHeroVisual from "../../components/ProductHeroVisual.astro";
+import { products } from "../../data/products";
+
+// ✅ 動的ルート用：静的生成する slug 一覧
+export function getStaticPaths() {
+  return products.map((p) => ({
+    params: { slug: p.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+const productExists = products.some((p) => p.slug === slug);
+
+// とりあえず固定で2枚（後で product ごとに変更OK）
+const galleryImages = [
+  `/images/lineup/product/tank-cover-type-s/1.png`,
+  `/images/lineup/product/tank-cover-type-s/2.png`,
+];
+---
+
+<BaseLayout title="製品詳細 | Esperance">
+
+  <section class="bg-[#050505]">
+    <div class="mx-auto max-w-[1440px] px-[24px] pt-[80px] pb-[120px]">
+
+      {productExists ? (
+        <>
+          <!-- ✅ ヒーロー（上で作ったやつ） -->
+          <ProductHeroVisual title="Text" />
+
+          <!-- ✅ 詳細（ギャラリー + スペック + inquire） -->
+          <section class="pd-section" aria-label="Product detail">
+            <div class="pd-inner">
+              <!-- Left: Gallery -->
+              <div class="pd-gallery" data-gallery>
+                <div class="pd-main">
+                  <img
+                    class="pd-main-img"
+                    src={galleryImages[0]}
+                    alt="Product image"
+                    data-main-img
+                  />
+                </div>
+
+                <div class="pd-thumbs" role="tablist" aria-label="Product images">
+                  {galleryImages.map((src, i) => (
+                    <button
+                      type="button"
+                      class:list={["pd-thumb", i === 0 ? "is-active" : ""]}
+                      aria-pressed={i === 0 ? "true" : "false"}
+                      data-thumb
+                      data-src={src}
+                    >
+                      <img src={src} alt={`Thumbnail ${i + 1}`} />
+                    </button>
+                  ))}
+
+                  <!-- 3枚目のダミー（表示だけ） -->
+                  <div class="pd-thumb pd-thumb-dummy" aria-hidden="true">3</div>
+                </div>
+              </div>
+
+              <!-- Right: Info -->
+              <div class="pd-info">
+                <div class="pd-cat">EXTERIOR PARTS</div>
+
+                <h2 class="pd-title">PRPDUCT NAME</h2>
+
+                <div class="pd-desc">
+                  <p>Text</p>
+                  <p>Text</p>
+                  <p>Text</p>
+                </div>
+
+                <div class="pd-spec">
+                  <div class="pd-row">
+                    <div class="pd-left">MATERIAL</div>
+                    <div class="pd-right">Text</div>
+                  </div>
+                  <div class="pd-row">
+                    <div class="pd-left">FINISH</div>
+                    <div class="pd-right">Text</div>
+                  </div>
+                  <div class="pd-row">
+                    <div class="pd-left">COMPATIBILITY</div>
+                    <div class="pd-right">Text</div>
+                  </div>
+                  <div class="pd-row">
+                    <div class="pd-left">WEIGHT</div>
+                    <div class="pd-right">Text</div>
+                  </div>
+                  <div class="pd-row">
+                    <div class="pd-left">PART NO.</div>
+                    <div class="pd-right">Text</div>
+                  </div>
+                </div>
+
+                <div class="pd-inquire">
+                  <p>
+                    Interested in this product?<br />
+                    Contact us for pricing and availability.
+                  </p>
+
+                  <a class="pd-btn" href="/contact">INQUIRE ABOUT THIS PRODUCT</a>
+                </div>
+              </div>
+            </div>
+          </section>
+        </>
+      ) : (
+        <div class="text-center text-white">
+          <p>Product not found.</p>
+          <a href="/lineup" class="underline">Back to lineup</a>
+        </div>
+      )}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  :global(.pd-section, .pd-section *) { box-sizing: border-box; }
+
+  .pd-section{
+    width: 100%;
+    background: transparent;
+    margin-top: 60px; /* ヒーローと詳細の間 */
+    margin-top: 80px; /* ✅ ProductHeroVisual と 商品詳細の間を 80px */
+  }
+
+
+
+  /* 枠：1200 / gap 60 */
+  .pd-inner{
+    width: 1200px;
+    height: 788.165px;
+    margin: 0 auto;
+    display: flex;
+    gap: 60px;
+
+  }
+
+  /* 左：621.81 / gap 20 */
+  .pd-gallery{
+    width: 621.81px;
+    height: 788.165px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* 大画像：619.81 × 464.36 */
+  .pd-main{
+    width: 619.81px;
+    height: 464.36px;
+    background: #0a0a0a;
+    border: 1px solid #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .pd-main-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* サムネ列 */
+  .pd-thumbs{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .pd-thumb{
+    width: 80px;
+    height: 80px;
+    border: 1px solid #333333;
+    opacity: 0.6;
+    background: #111;
+    padding: 0;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .pd-thumb img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .pd-thumb.is-active{
+    border: 1px solid #D32F2F;
+    opacity: 1;
+  }
+
+  .pd-thumb-dummy{
+    opacity: 0.35;
+    border: 1px solid #333333;
+    color: #666;
+    font-family: Oswald, sans-serif;
+    font-size: 40px;
+    line-height: 1;
+    user-select: none;
+  }
+
+  /* 右：518.19 / gap 15 */
+  .pd-info{
+    width: 518.19px;
+    height: 788.165px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .pd-cat{
+    color: #D32F2F;
+    font-family: Oswald, sans-serif;
+    font-weight: 400;
+    font-size: 12.8px;
+    line-height: 20.48px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid #222;
+    padding: 6px 10px;
+    width: fit-content;
+    text-transform: uppercase;
+  }
+
+  .pd-title{
+    margin: 0;
+    color: #fff;
+    font-family: Oswald, sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 44px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+
+  .pd-desc{
+    color: #CCCCCC;
+    font-family: Inter, system-ui, -apple-system, "Noto Sans JP", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28.8px;
+  }
+  .pd-desc p{ margin: 0; }
+
+  /* 詳細枠：height 325.5 / padding top 25 bottom 25.5 */
+  .pd-spec{
+    width: 518.19px;
+    height: 325.5px;
+    padding-top: 25px;
+    padding-bottom: 25.5px;
+    border-top: 1px solid #222222;
+  }
+
+  .pd-row{
+    width: 518.19px;
+    height: 55px;
+    border-bottom: 1px solid #222222;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .pd-left{
+    color: #888888;
+    font-family: Oswald, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .pd-right{
+    color: #FFFFFF;
+    font-family: Inter, system-ui, -apple-system, "Noto Sans JP", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1;
+    text-align: right;
+  }
+
+  /* inquire：border + padding 40 */
+  .pd-inquire{
+    width: 518.19px;
+    height: 204px;
+    border: 1px solid #222;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    background: rgba(255,255,255,0.02);
+  }
+
+  .pd-inquire p{
+    margin: 0;
+    text-align: center;
+    color: #888888;
+    font-family: Inter, system-ui, -apple-system, "Noto Sans JP", sans-serif;
+    font-weight: 400;
+    font-size: 14.4px;
+    line-height: 23px;
+  }
+
+  .pd-btn{
+    width: 436.19px;
+    height: 56px;
+    margin: 0 auto;
+    background: #D32F2F;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    text-decoration: none;
+
+    color: #fff;
+    font-family: Oswald, sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 25.6px;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+  }
+</style>
+
+<script is:inline>
+  (() => {
+    const root = document.querySelector("[data-gallery]");
+    if (!root) return;
+
+    const mainImg = root.querySelector("[data-main-img]");
+    const thumbs = Array.from(root.querySelectorAll("[data-thumb]"));
+
+    if (!mainImg || thumbs.length === 0) return;
+
+    const setActive = (btn) => {
+      thumbs.forEach((b) => {
+        const active = b === btn;
+        b.classList.toggle("is-active", active);
+        b.setAttribute("aria-pressed", active ? "true" : "false");
+      });
+
+      const src = btn.getAttribute("data-src");
+      if (src) mainImg.setAttribute("src", src);
+    };
+
+    thumbs.forEach((btn) => {
+      btn.addEventListener("click", () => setActive(btn));
+    });
+  })();
+</script>
