@@ -34,7 +34,8 @@ const switchToEn = withLangPrefix(Astro.url.pathname, "en");
       <img src="/images/logo.svg" alt="Esperance" class="h-[28px] w-auto" />
     </a>
 
-    <nav aria-label="Primary" class="h-[22.3px] w-[529px] max-[960px]:w-auto">
+    <!-- ✅ 640px以上は“現状のまま”表示 / 640px未満だけ隠す -->
+    <nav aria-label="Primary" class="h-[22.3px] w-[529px] max-[960px]:w-auto max-[640px]:hidden">
       <ul class="m-0 flex list-none items-center justify-end gap-[28px] p-0 max-[960px]:gap-[18px]">
         {nav.map((item) => (
           <li>
@@ -50,10 +51,114 @@ const switchToEn = withLangPrefix(Astro.url.pathname, "en");
       </ul>
     </nav>
 
+    <!-- ✅ 640px未満だけ表示するメニューボタン（641px以上は一切影響なし） -->
+    <button
+      id="spMenuBtn"
+      type="button"
+      class="hidden max-[640px]:inline-flex items-center justify-center h-[44px] w-[44px]
+             rounded-[10px] border border-white/15 hover:bg-white/5"
+      aria-label="Open menu"
+      aria-controls="spMenu"
+      aria-expanded="false"
+    >
+      <!-- hamburger icon -->
+      <span class="block h-[2px] w-[18px] bg-white/90 relative">
+        <span class="absolute left-0 top-[-6px] h-[2px] w-[18px] bg-white/90"></span>
+        <span class="absolute left-0 top-[6px] h-[2px] w-[18px] bg-white/90"></span>
+      </span>
+    </button>
+
     <!-- 今はデザインに無いので非表示（でもURLは用意済み） -->
     <div class="hidden">
       <a href={switchToJa}>JA</a>
       <a href={switchToEn}>EN</a>
     </div>
   </div>
+
+  <!-- ✅ SPドロワー（640px未満だけ使う。閉じてる時はDOM上にあるが透明＋クリック不可） -->
+  <div
+    id="spMenuBackdrop"
+    class="pointer-events-none fixed inset-0 z-[999] bg-black/60 opacity-0 transition-opacity duration-200 max-[640px]:block hidden"
+  ></div>
+
+  <div
+    id="spMenu"
+    class="fixed right-0 top-0 z-[1000] h-[100dvh] w-[82vw] max-w-[360px]
+           translate-x-full bg-[#050505] border-l border-white/10
+           transition-transform duration-200 max-[640px]:block hidden"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Mobile menu"
+  >
+    <div class="flex items-center justify-between h-[85px] px-[20px] border-b border-white/10">
+      <span class="font-[Oswald] text-[16px] tracking-[1.1px] text-[#E3E3E3]">MENU</span>
+      <button
+        id="spMenuClose"
+        type="button"
+        class="inline-flex items-center justify-center h-[44px] w-[44px]
+               rounded-[10px] border border-white/15 hover:bg-white/5"
+        aria-label="Close menu"
+      >
+        <!-- X icon -->
+        <span class="relative block h-[18px] w-[18px]">
+          <span class="absolute left-1/2 top-1/2 h-[2px] w-[18px] -translate-x-1/2 -translate-y-1/2 rotate-45 bg-white/90"></span>
+          <span class="absolute left-1/2 top-1/2 h-[2px] w-[18px] -translate-x-1/2 -translate-y-1/2 -rotate-45 bg-white/90"></span>
+        </span>
+      </button>
+    </div>
+
+    <nav class="px-[20px] pt-[18px]">
+      <ul class="m-0 list-none p-0 space-y-[14px]">
+        {nav.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class="block py-[10px] border-b border-white/10
+                     font-[Oswald] text-[18px] font-medium tracking-[1.1px] text-[#E3E3E3] hover:opacity-85"
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+
+  <script is:inline>
+    const btn = document.getElementById("spMenuBtn");
+    const menu = document.getElementById("spMenu");
+    const closeBtn = document.getElementById("spMenuClose");
+    const backdrop = document.getElementById("spMenuBackdrop");
+
+    const openMenu = () => {
+      btn?.setAttribute("aria-expanded", "true");
+      backdrop?.classList.remove("pointer-events-none", "opacity-0");
+      backdrop?.classList.add("pointer-events-auto", "opacity-100");
+      menu?.classList.remove("translate-x-full");
+      document.documentElement.style.overflow = "hidden";
+    };
+
+    const closeMenu = () => {
+      btn?.setAttribute("aria-expanded", "false");
+      backdrop?.classList.add("pointer-events-none", "opacity-0");
+      backdrop?.classList.remove("pointer-events-auto", "opacity-100");
+      menu?.classList.add("translate-x-full");
+      document.documentElement.style.overflow = "";
+    };
+
+    btn?.addEventListener("click", openMenu);
+    closeBtn?.addEventListener("click", closeMenu);
+    backdrop?.addEventListener("click", closeMenu);
+
+    // ESCで閉じる
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeMenu();
+    });
+
+    // SP→PCに戻った時に閉じておく
+    const mq = window.matchMedia("(min-width: 641px)");
+    mq.addEventListener?.("change", (e) => {
+      if (e.matches) closeMenu();
+    });
+  </script>
 </header>

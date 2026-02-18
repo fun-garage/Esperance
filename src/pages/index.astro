@@ -5,53 +5,71 @@ import "../styles/top.css";
 
 <BaseLayout title="Esperance">
   <!-- Main Visual -->
-  <section class="mx-auto max-w-[1440px]">
-    <div
-      class="relative h-[900px] w-full bg-cover bg-center"
-      style="background-image: url('/images/top/main.png');"
-    >
-      <!-- 見出し＋ボタン枠（1169幅、左136、上609） -->
-      <div
-        class="absolute left-[136px] top-[609px] flex w-[1169px] items-end justify-between"
-      >
-        <!-- 左側テキスト枠（668×220） -->
-        <div class="flex w-[668px] flex-col gap-2">
-          <p
-            class="font-[Oswald] text-[19.2px] font-normal leading-[34.56px] tracking-[5.76px] text-[#D32F2F]"
-          >
-            THE ULTIMATE PARTS FOR KATANA.
-          </p>
-
-		  <h1 class="font-[Noto_Serif_JP] text-[64px] font-bold leading-[78.4px] tracking-[0.8px] !text-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)]">
+<!-- Main Visual -->
+<section class="mx-auto max-w-[1440px]">
+	<div
+	  class="relative h-[900px] w-full bg-cover bg-center
+			 max-[960px]:h-[720px]
+			 max-[640px]:h-[640px]"
+	  style="background-image: url('/images/top/main.png');"
+	>
+	  <!-- 見出し＋ボタン枠（1169幅、左136、上609） -->
+	  <div
+		class="absolute left-[136px] top-[609px] flex w-[1169px] items-end justify-between
+  
+			   /* ↓ ここからSP/タブレットだけ上書き（PCは一切変わらない） */
+			   max-[960px]:left-[24px] max-[960px]:right-[24px] max-[960px]:w-auto
+			   max-[960px]:top-auto max-[960px]:bottom-[40px]
+			   max-[960px]:flex-col max-[960px]:items-start max-[960px]:gap-[20px]
+  
+			   max-[640px]:left-[16px] max-[640px]:right-[16px] max-[640px]:bottom-[28px]"
+	  >
+		<!-- 左側テキスト枠（668×220） -->
+		<div class="flex w-[668px] flex-col gap-2 max-[960px]:w-full">
+		  <p
+			class="font-[Oswald] text-[19.2px] font-normal leading-[34.56px] tracking-[5.76px] text-[#D32F2F]
+				   max-[640px]:text-[14px] max-[640px]:leading-[24px] max-[640px]:tracking-[3px]"
+		  >
+			THE ULTIMATE PARTS FOR KATANA.
+		  </p>
+  
+		  <h1
+			class="font-[Noto_Serif_JP] text-[64px] font-bold leading-[78.4px] tracking-[0.8px] !text-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)]
+				   max-[960px]:text-[48px] max-[960px]:leading-[60px]
+				   max-[640px]:text-[34px] max-[640px]:leading-[44px]"
+		  >
 			KATANAのパーツを、<br />
 			創り出す。
 		  </h1>
-		
-        </div>
-
-        <!-- 右下ボタン（293×58 / padding 15 50） -->
+		</div>
+  
+		<!-- 右下ボタン（293×58 / padding 15 50） -->
 		<a
-		href="/lineup"
-		class="inline-flex h-[58px] w-[293px] items-center justify-center border border-[#D32F2F] bg-[#D32F2F]/30 px-[40px] py-[15px]
-       font-[Noto_Sans_JP] text-[16px] font-bold leading-[25.92px] tracking-[1.44px]
-       !text-white visited:!text-white"
-	  >
-		製品ラインナップを見る
-	  </a>
-      </div>
-    </div>
+		  href="/lineup"
+		  class="inline-flex h-[58px] w-[293px] items-center justify-center border border-[#D32F2F] bg-[#D32F2F]/30 px-[40px] py-[15px]
+				 font-[Noto_Sans_JP] text-[16px] font-bold leading-[25.92px] tracking-[1.44px]
+				 !text-white visited:!text-white
+  
+				 /* ↓ SPだけ：横幅を広げる（PCは固定のまま） */
+				 max-[960px]:w-[320px]
+				 max-[640px]:w-full"
+		>
+		  製品ラインナップを見る
+		</a>
+	  </div>
+	</div>
   </section>
+  
 
   <!-- OUR TECHNOLOGY -->
+<!-- OUR TECHNOLOGY -->
 <section class="bg-[#050505]">
-	<div
-	  class="mx-auto max-w-[1200px] border-b border-white/10 px-[24px] py-[70px]"
-	>
+	<div class="mx-auto max-w-[1200px] border-b border-white/10 px-[24px] py-[70px]">
 	  <div class="flex flex-col gap-[70px]">
 		<!-- インナー1 -->
-		<div class="flex gap-[30px]">
+		<div class="flex gap-[30px] max-[640px]:gap-[16px]">
 		  <!-- 左の縦ボーダー -->
-		  <div class="h-[191px] w-[4px] bg-[#D32F2F]"></div>
+		  <div class="h-[191px] w-[4px] bg-[#D32F2F] max-[640px]:h-auto"></div>
   
 		  <!-- テキスト群 -->
 		  <div class="flex flex-col gap-[5px]">
@@ -62,14 +80,16 @@ import "../styles/top.css";
 			</p>
   
 			<h2
-			  class="font-[Noto_Sans_JP] text-[40px] font-bold leading-[48px] tracking-[0.8px] text-white"
+			  class="font-[Noto_Sans_JP] text-[40px] font-bold leading-[48px] tracking-[0.8px] text-white
+					 max-[640px]:text-[28px] max-[640px]:leading-[36px]"
 			>
 			  不可能を可能にする<br />
 			  ３つのコア技術
 			</h2>
   
 			<p
-			  class="mt-[10px] font-[Noto_Sans_JP] text-[15.2px] font-[350] leading-[27.36px] tracking-[0.8px] text-[#AAAAAA]"
+			  class="mt-[10px] font-[Noto_Sans_JP] text-[15.2px] font-[350] leading-[27.36px] tracking-[0.8px] text-[#AAAAAA]
+					 max-[640px]:text-[14px] max-[640px]:leading-[24px]"
 			>
 			  図面の存在しない旧車パーツの復刻。それを実現するのは、 最新のデジタル解析と<br />
 			  熟練の職人技の融合です。
@@ -78,10 +98,14 @@ import "../styles/top.css";
 		</div>
   
 		<!-- インナー2：カード3枚 -->
-		<div class="flex gap-[40px]">
+		<!-- ✅ PCはそのまま flex（横3枚） / 960px以下だけ grid に切替して自然に折り返し -->
+		<div class="flex gap-[40px]
+					max-[960px]:grid max-[960px]:grid-cols-2 max-[960px]:gap-[24px]
+					max-[640px]:grid-cols-1">
 		  <!-- Card 01 -->
 		  <div
-			class="relative h-[300.7px] w-[357.33px] border border-[#222222] bg-[#0F0F0F] px-[30px] pb-[40px] pt-[60px]"
+			class="relative h-[300.7px] w-[357.33px] border border-[#222222] bg-[#0F0F0F] px-[30px] pb-[40px] pt-[60px]
+				   max-[960px]:w-full max-[960px]:h-auto"
 		  >
 			<div
 			  class="absolute right-[30px] top-[40px] font-[Oswald] text-[48px] font-bold leading-[48px] tracking-[0.8px] text-[#222222]"
@@ -114,7 +138,8 @@ import "../styles/top.css";
   
 		  <!-- Card 02 -->
 		  <div
-			class="relative h-[300.7px] w-[357.33px] border border-[#222222] bg-[#0F0F0F] px-[30px] pb-[40px] pt-[60px]"
+			class="relative h-[300.7px] w-[357.33px] border border-[#222222] bg-[#0F0F0F] px-[30px] pb-[40px] pt-[60px]
+				   max-[960px]:w-full max-[960px]:h-auto"
 		  >
 			<div
 			  class="absolute right-[30px] top-[40px] font-[Oswald] text-[48px] font-bold leading-[48px] tracking-[0.8px] text-[#222222]"
@@ -147,7 +172,9 @@ import "../styles/top.css";
   
 		  <!-- Card 03 -->
 		  <div
-			class="relative h-[300.7px] w-[357.33px] border border-[#222222] bg-[#0F0F0F] px-[30px] pb-[40px] pt-[60px]"
+			class="relative h-[300.7px] w-[357.33px] border border-[#222222] bg-[#0F0F0F] px-[30px] pb-[40px] pt-[60px]
+				   max-[960px]:w-full max-[960px]:h-auto
+				   max-[960px]:col-span-2 max-[640px]:col-span-1"
 		  >
 			<div
 			  class="absolute right-[30px] top-[40px] font-[Oswald] text-[48px] font-bold leading-[48px] tracking-[0.8px] text-[#222222]"
@@ -181,81 +208,91 @@ import "../styles/top.css";
 	  </div>
 	</div>
   </section>
+  
 
   <!-- THE COLLECTION -->
+<!-- THE COLLECTION -->
 <section class="bg-[#050505]">
 	<!-- 大枠 1440相当 -->
 	<div class="mx-auto max-w-[1440px] py-[80px]">
 	  <!-- インナー1（1152幅） -->
 	  <div class="mx-auto flex max-w-[1152px] flex-col gap-[80px] px-[24px]">
 		<!-- 見出しブロック（左に赤ライン） -->
-		<div class="flex gap-[30px]">
-		  <div class="h-[191px] w-[4px] bg-[#D32F2F]"></div>
+		<div class="flex gap-[30px] max-[640px]:gap-[16px]">
+		  <div class="h-[191px] w-[4px] bg-[#D32F2F] max-[640px]:h-auto"></div>
   
 		  <div class="flex flex-col gap-[5px]">
 			<p class="font-[Oswald] text-[14.4px] font-normal leading-[25.92px] tracking-[1.44px] text-[#D32F2F] uppercase">
 			  THE COLLECTION
 			</p>
   
-			<h2 class="font-[Noto_Sans_JP] text-[40px] font-bold leading-[48px] tracking-[0.8px] text-white">
+			<h2 class="font-[Noto_Sans_JP] text-[40px] font-bold leading-[48px] tracking-[0.8px] text-white
+					   max-[640px]:text-[28px] max-[640px]:leading-[36px]">
 			  製品紹介
 			</h2>
   
-			<p class="mt-[10px] font-[Noto_Sans_JP] text-[15.2px] font-[350] leading-[27.36px] tracking-[0.8px] text-[#AAAAAA]">
+			<p class="mt-[10px] font-[Noto_Sans_JP] text-[15.2px] font-[350] leading-[27.36px] tracking-[0.8px] text-[#AAAAAA]
+					  max-[640px]:text-[14px] max-[640px]:leading-[24px]">
 			  SN金型が送り出す、渾身のKATANAサードパーティパーツ。
 			</p>
 		  </div>
 		</div>
   
 		<!-- バイク背景＋製品配置（相対配置） -->
-		<div class="relative w-full">
-		  <!-- バイク画像 -->
-		  <img
-			src="/images/top/motorbike.png"
-			alt="Motorbike"
-			class="mx-auto block w-full max-w-[720px] opacity-95"
-		  />
-  
-		  <!-- 左の製品（画像＋名前） -->
-		  <div class="collection-left">
-			<div class="h-[140px] w-full bg-white/95"></div>
-		  
-			<p class="mt-[12px] font-[Noto_Sans_JP] text-[16px] font-bold leading-[16px] text-white">
-			  製品名が入ります
-			</p>
-		  
-			<img
-			  src="/images/top/under-line-left.svg"
-			  alt=""
-			  class="collection-underline-left"
-			/>
-		  </div>
+		<div class="collection-scroll" data-collection-scroll>
+			<div class="collection-scroll-fade" aria-hidden="true"></div>
+			<div class="collection-stage relative w-full">
 		  
   
-		  <!-- 右の製品（画像＋名前） -->
-		  <div class="collection-right text-left">
-			<div class="h-[140px] w-full bg-white/95"></div>
-		  
-			<p class="mt-[12px] font-[Noto_Sans_JP] text-[16px] font-bold leading-[16px] text-white">
-			  製品名が入ります
-			</p>
-		  
-			<img
-			  src="/images/top/under-line-right.svg"
-			  alt=""
-			  class="collection-underline-right"
-			/>
-		  </div>
-		</div>
+  
+	  <!-- バイク画像 -->
+	  <img
+		src="/images/top/motorbike.png"
+		alt="Motorbike"
+		class="mx-auto block w-full max-w-[720px] opacity-95"
+	  />
+  
+	  <!-- 左の製品（画像＋名前） -->
+	  <div class="collection-left">
+		<div class="h-[140px] w-full bg-white/95"></div>
+  
+		<p class="mt-[12px] font-[Noto_Sans_JP] text-[16px] font-bold leading-[16px] text-white">
+		  製品名が入ります
+		</p>
+  
+		<img
+		  src="/images/top/under-line-left.svg"
+		  alt=""
+		  class="collection-underline-left"
+		/>
+	  </div>
+  
+	  <!-- 右の製品（画像＋名前） -->
+	  <div class="collection-right text-left">
+		<div class="h-[140px] w-full bg-white/95"></div>
+  
+		<p class="mt-[12px] font-[Noto_Sans_JP] text-[16px] font-bold leading-[16px] text-white">
+		  製品名が入ります
+		</p>
+  
+		<img
+		  src="/images/top/under-line-right.svg"
+		  alt=""
+		  class="collection-underline-right"
+		/>
+	  </div>
+	</div>
+  </div>
+  
 	  </div>
   
 	  <!-- インナー2（下の2カラム：1440幅/ボーダー） -->
 	  <div class="mt-[80px] w-full border-y border-[#222222]">
-		<div class="mx-auto grid max-w-[1440px] grid-cols-2 gap-[1px] bg-[#222222]">
+		<div class="mx-auto grid max-w-[1440px] grid-cols-2 gap-[1px] bg-[#222222]
+					max-[960px]:grid-cols-1">
 		  <!-- 左ボックス -->
-		  <div
-			class="h-[450px] bg-gradient-to-br from-[#0A0A0A] to-[#1A1A1A] p-[50px]"
-		  >
+		  <div class="h-[450px] bg-gradient-to-br from-[#0A0A0A] to-[#1A1A1A] p-[50px]
+					  max-[640px]:p-[24px] max-[640px]:h-auto">
 			<p class="font-[Oswald] text-[12px] font-normal leading-[21.6px] tracking-[1.2px] text-[#D32F2F] uppercase">
 			  EXTERIOR PARTS
 			</p>
@@ -270,9 +307,8 @@ import "../styles/top.css";
 		  </div>
   
 		  <!-- 右ボックス -->
-		  <div
-			class="h-[450px] bg-gradient-to-br from-[#050505] to-[#111111] p-[50px]"
-		  >
+		  <div class="h-[450px] bg-gradient-to-br from-[#050505] to-[#111111] p-[50px]
+					  max-[640px]:p-[24px] max-[640px]:h-auto">
 			<p class="font-[Oswald] text-[12px] font-normal leading-[21.6px] tracking-[1.2px] text-[#D32F2F] uppercase">
 			  ENGINE PARTS
 			</p>
@@ -289,78 +325,90 @@ import "../styles/top.css";
 	  </div>
 	</div>
   </section>
+  
 
   <!-- OUR EQUIPMENT -->
+<!-- OUR EQUIPMENT -->
 <section class="bg-[#050505]">
 	<div class="mx-auto max-w-[1153px] px-[24px] py-[48px]">
-	  <div class="mx-auto flex max-w-[1105px] gap-[60px]">
+	  <div class="mx-auto flex max-w-[1105px] gap-[60px]
+				  max-[960px]:flex-col max-[960px]:gap-[32px]">
 		<!-- 左：画像 -->
-		<div class="relative h-[500px] w-[522.5px]">
-			<!-- L字ボーダーを少し内側に -->
-			<div class="absolute left-[-10px] top-[-10px] h-[102px] w-[102px] border-l-2 border-t-2 border-[#D32F2F]"></div>
-		  
-			<img
-			  src="/images/top/img-machine.png"
-			  alt="Machine"
-			  class="h-full w-full object-cover"
-			/>
+		<div class="relative h-[500px] w-[522.5px]
+					max-[960px]:w-full max-[960px]:h-[420px]
+					max-[640px]:h-[320px]">
+		  <!-- L字ボーダーを少し内側に（PCそのまま、SPだけ少し内側にしてはみ出し防止） -->
+		  <div class="absolute left-[-10px] top-[-10px] h-[102px] w-[102px] border-l-2 border-t-2 border-[#D32F2F]
+					  max-[960px]:left-[0px] max-[960px]:top-[0px]"></div>
+  
+		  <img
+			src="/images/top/img-machine.png"
+			alt="Machine"
+			class="h-full w-full object-cover"
+		  />
+		</div>
+  
+		<!-- 右：テキスト -->
+		<div class="flex w-[522.5px] flex-col gap-[30px]
+					max-[960px]:w-full">
+		  <!-- 見出しブロック（左ボーダー付き） -->
+		  <div
+			class="h-[191.53px] border-l-[4px] border-[#D32F2F] pl-[24px] flex flex-col justify-between
+				   max-[960px]:h-auto max-[960px]:gap-[14px]"
+		  >
+			<div>
+			  <p class="font-[Oswald] text-[16px] font-normal leading-[25.6px] tracking-[1.6px] text-[#D32F2F] uppercase">
+				OUR EQUIPMENT
+			  </p>
+  
+			  <h2 class="mt-[4px] font-[Oswald] text-[48px] font-bold leading-[76.8px] tracking-[4.8px] text-white uppercase
+						 max-[640px]:text-[34px] max-[640px]:leading-[52px] max-[640px]:tracking-[3px]">
+				最先端設備
+			  </h2>
+			</div>
+  
+			<p class="font-[Noto_Sans_JP] text-[14.4px] font-[350] leading-[23px] text-[#888888]
+					  max-[640px]:text-[14px] max-[640px]:leading-[24px]">
+			  伝統の職人技を支えるのは、世界最高水準のマシン群。<br />
+			  5軸マシニングセンタによる複雑形状の削り出しから、ミクロン単位の3次元<br />
+			  測定まで。 妥協なき品質を生み出す「武器庫」がここにある。
+			</p>
 		  </div>
-		  
-  
-
-<!-- 右：テキスト -->
-<div class="flex w-[522.5px] flex-col gap-[30px]">
-  
-	<!-- 見出しブロック（左ボーダー付き） -->
-	<div
-	  class="h-[191.53px] border-l-[4px] border-[#D32F2F] pl-[24px] flex flex-col justify-between"
-	>
-	  <div>
-		<p class="font-[Oswald] text-[16px] font-normal leading-[25.6px] tracking-[1.6px] text-[#D32F2F] uppercase">
-		  OUR EQUIPMENT
-		</p>
-  
-		<h2 class="mt-[4px] font-[Oswald] text-[48px] font-bold leading-[76.8px] tracking-[4.8px] text-white uppercase">
-		  最先端設備
-		</h2>
-	  </div>
-  
-	  <p class="font-[Noto_Sans_JP] text-[14.4px] font-[350] leading-[23px] text-[#888888]">
-		伝統の職人技を支えるのは、世界最高水準のマシン群。<br />
-		5軸マシニングセンタによる複雑形状の削り出しから、ミクロン単位の3次元<br />
-		測定まで。 妥協なき品質を生み出す「武器庫」がここにある。
-	  </p>
-	</div>
-  
   
 		  <!-- リスト（上ボーダー＋各行下ボーダー） -->
 		  <div class="w-full border-t border-[#333333]">
 			<!-- row 1 -->
-			<div class="flex items-center justify-between border-b border-[#333333] py-[18px]">
+			<div class="flex items-center justify-between border-b border-[#333333] py-[18px]
+						max-[640px]:flex-col max-[640px]:items-start max-[640px]:gap-[6px]">
 			  <p class="font-[Oswald] text-[17.6px] font-bold leading-[28.16px] tracking-[0.88px] text-white">
 				5-AXIS MACHINING
 			  </p>
-			  <p class="font-[Noto_Sans_JP] text-[13.6px] font-[350] leading-[21.76px] text-[#888888]">
+			  <p class="font-[Noto_Sans_JP] text-[13.6px] font-[350] leading-[21.76px] text-[#888888]
+						max-[640px]:text-[13px] max-[640px]:leading-[20px]">
 				MAKINO D500 / 複雑形状加工
 			  </p>
 			</div>
   
 			<!-- row 2 -->
-			<div class="flex items-center justify-between border-b border-[#333333] py-[18px]">
+			<div class="flex items-center justify-between border-b border-[#333333] py-[18px]
+						max-[640px]:flex-col max-[640px]:items-start max-[640px]:gap-[6px]">
 			  <p class="font-[Oswald] text-[17.6px] font-bold leading-[28.16px] tracking-[0.88px] text-white">
 				3D SCANNER
 			  </p>
-			  <p class="font-[Noto_Sans_JP] text-[13.6px] font-[350] leading-[21.76px] text-[#888888]">
+			  <p class="font-[Noto_Sans_JP] text-[13.6px] font-[350] leading-[21.76px] text-[#888888]
+						max-[640px]:text-[13px] max-[640px]:leading-[20px]">
 				KEYENCE VL-700 / リバースエンジニアリング
 			  </p>
 			</div>
   
 			<!-- row 3 -->
-			<div class="flex items-center justify-between border-b border-[#333333] py-[18px]">
+			<div class="flex items-center justify-between border-b border-[#333333] py-[18px]
+						max-[640px]:flex-col max-[640px]:items-start max-[640px]:gap-[6px]">
 			  <p class="font-[Oswald] text-[17.6px] font-bold leading-[28.16px] tracking-[0.88px] text-white">
 				WIRE EDM
 			  </p>
-			  <p class="font-[Noto_Sans_JP] text-[13.6px] font-[350] leading-[21.76px] text-[#888888]">
+			  <p class="font-[Noto_Sans_JP] text-[13.6px] font-[350] leading-[21.76px] text-[#888888]
+						max-[640px]:text-[13px] max-[640px]:leading-[20px]">
 				SODICK / 精密放電加工
 			  </p>
 			</div>
@@ -381,4 +429,39 @@ import "../styles/top.css";
   
   
   
+  
 </BaseLayout>
+<script is:inline>
+	(() => {
+	  const scroller = document.querySelector('[data-collection-scroll]');
+	  console.log("scroller:", scroller);
+  
+	  if (!scroller) return;
+  
+	  const mq = window.matchMedia("(max-width: 640px)");
+	  console.log("mq matches:", mq.matches);
+  
+	  const KEY = "collectionScrollHintDone";
+	  console.log("KEY:", localStorage.getItem(KEY));
+  
+	  // 強制的に毎回見せたい時は次の1行を一時的にON
+	  // localStorage.removeItem(KEY);
+  
+	  if (!mq.matches) return;
+	  if (localStorage.getItem(KEY) === "1") return;
+  
+	  scroller.classList.add("collection-nudge");
+  
+	  const start = scroller.scrollLeft;
+	  const bump = Math.min(60, scroller.scrollWidth - scroller.clientWidth);
+  
+	  scroller.scrollTo({ left: start + bump, behavior: "smooth" });
+	  setTimeout(() => scroller.scrollTo({ left: start, behavior: "smooth" }), 520);
+  
+	  setTimeout(() => {
+		localStorage.setItem(KEY, "1");
+		scroller.classList.remove("collection-nudge");
+	  }, 1100);
+	})();
+  </script>
+  

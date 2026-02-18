@@ -23,3 +23,51 @@
     transform: translate(-85px, 0px); /* ← (X, Y) で左右・上下 */
   }
   
+
+  /* =========================
+   THE COLLECTION : horizontal scroll on mobile
+========================= */
+
+/* スマホだけ「PCのまま横スクロール」 */
+.collection-scroll{
+  @apply max-[640px]:overflow-x-auto max-[640px]:-mx-[24px] max-[640px]:px-[24px];
+  -webkit-overflow-scrolling: touch;
+}
+
+/* スマホ時は中身をPC想定幅に固定して、崩れず横スクさせる */
+.collection-stage{
+  @apply max-[640px]:min-w-[1152px];
+}
+
+/* =========================
+   THE COLLECTION : scroll hint (mobile only)
+========================= */
+
+/* 右端に「まだ続きがある」フェード */
+.collection-scroll{
+  @apply max-[640px]:relative;
+}
+
+.collection-scroll-fade{
+  @apply hidden max-[640px]:block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 56px;
+  height: 100%;
+  pointer-events: none;
+  /* 背景色(#050505)に自然に溶ける */
+  background: linear-gradient(to left, rgba(5,5,5,0.95), rgba(5,5,5,0));
+}
+
+/* “ちょい揺らし” 用（JSで一時的に付ける） */
+@keyframes collectionNudge {
+  0%   { transform: translateX(0); }
+  35%  { transform: translateX(26px); }
+  70%  { transform: translateX(0); }
+  100% { transform: translateX(0); }
+}
+
+.collection-nudge{
+  animation: collectionNudge 900ms ease-in-out 1;
+}

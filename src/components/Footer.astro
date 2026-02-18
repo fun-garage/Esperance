@@ -23,8 +23,10 @@ const hrefs = isEn
 ---
 
 <footer class="w-full bg-[#050505]">
-  <div class="mx-auto max-w-[1440px] px-[80px] py-[60px]">
-    <div class="flex w-full items-start justify-between">
+  <div class="mx-auto max-w-[1440px] px-[80px] py-[60px]
+              max-[960px]:px-[24px] max-[640px]:px-[16px]">
+    <div class="flex w-full items-start justify-between
+                max-[960px]:flex-col max-[960px]:gap-[40px]">
       <!-- 左：ロゴ＋住所 -->
       <div class="flex flex-col gap-[18px]">
         <img src="/images/logo-footer.svg" alt="Esperance" class="h-[30px] w-auto" />
@@ -43,9 +45,10 @@ const hrefs = isEn
       </div>
 
       <!-- 右：ナビ（2列） -->
-      <div class="flex gap-[40px]">
+      <div class="flex gap-[40px]
+                  max-[640px]:flex-col max-[640px]:gap-[24px]">
         <!-- CONTENTS -->
-        <div class="w-[274.73px]">
+        <div class="w-[274.73px] max-[960px]:w-auto">
           <p class={isEn ? "footer-en-navhead" : "font-[Noto_Sans_JP] text-[14.4px] font-bold leading-[28.8px] tracking-[0.8px] text-[#D32F2F]"}>
             • CONTENTS
           </p>
@@ -75,7 +78,7 @@ const hrefs = isEn
         </div>
 
         <!-- COMPANY -->
-        <div class="w-[274.73px]">
+        <div class="w-[274.73px] max-[960px]:w-auto">
           <p class={isEn ? "footer-en-navhead" : "font-[Noto_Sans_JP] text-[14.4px] font-bold leading-[28.8px] tracking-[0.8px] text-[#D32F2F]"}>
             • COMPANY
           </p>
@@ -99,7 +102,8 @@ const hrefs = isEn
       </div>
     </div>
 
-    <p class="mt-[70px] text-center font-[Oswald] text-[11.2px] font-normal leading-[20.16px] tracking-[1.12px] text-white uppercase">
+    <p class="mt-[70px] text-center font-[Oswald] text-[11.2px] font-normal leading-[20.16px] tracking-[1.12px] text-white uppercase
+              max-[640px]:mt-[40px]">
       © 2025 SN KANAGATA CO., LTD. ALL RIGHTS RESERVED.
     </p>
   </div>
@@ -111,7 +115,7 @@ const hrefs = isEn
       font-size: 16px;
       letter-spacing: 0.8px;
       color: #ffffff;
-      line-height: 23px; /* Figmaの0pxは実装だと潰れるので、見た目合わせでここが安定 */
+      line-height: 23px;
     }
     .footer-en-navhead{
       font-family: Oswald, sans-serif;
