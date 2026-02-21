@@ -366,20 +366,45 @@
   color: #888888;
 }
 
-/* History responsive */
+/* =========================
+   HISTORY responsive（追加）
+   ※PC(1100px以上)は一切変更なし
+========================= */
 @media (max-width: 1100px) {
-  .hist-heading,
-  .timeline,
-  .timeline-item {
+  .hist-heading {
     width: 100%;
+    height: auto;
   }
 
   .timeline {
+    width: 100%;
     height: auto;
   }
 
   .timeline-item {
+    width: 100%;
     height: auto;
-    /* grid-template-columns はflexなので効かないため削除が正 */
+  }
+}
+
+/* スマホで余白・点位置が詰まりすぎるのを調整（PCは無関係） */
+@media (max-width: 600px) {
+  .timeline {
+    padding-left: 32px;
+    gap: 36px;
+  }
+
+  .timeline-item {
+    padding-left: 32px;
+  }
+
+  .timeline-dot {
+    left: -40px;
+  }
+}
+@media (max-width: 600px) {
+  .cp-inner {
+    padding-left: 0;
+    padding-right: 0;
   }
 }

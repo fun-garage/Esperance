@@ -47,21 +47,24 @@ function ariaLabel(title: string) {
 }
 ---
 
-
 <div id="lineup-tabs" class="mx-auto w-full max-w-[1200px]">
-  <div id="lineup-tabbar" class="lineup-tabbar">
-    {tabs.map((t) => (
-      <button
-        type="button"
-        class="lineup-tab"
-        data-tab={t.key}
-        data-active={t.key === defaultTab ? "true" : "false"}
-        aria-pressed={t.key === defaultTab ? "true" : "false"}
-      >
-        {t.label}
-      </button>
-    ))}
-    <span id="lineup-indicator" class="lineup-indicator" aria-hidden="true"></span>
+  <!-- ✅ SPは横スクロールできるバー（PCは現状のまま中央寄せ） -->
+  <div class="lineup-tabbar-wrap">
+    <div id="lineup-tabbar" class="lineup-tabbar" role="tablist" aria-label="Lineup tabs">
+      {tabs.map((t) => (
+        <button
+          type="button"
+          class="lineup-tab"
+          data-tab={t.key}
+          data-active={t.key === defaultTab ? "true" : "false"}
+          aria-pressed={t.key === defaultTab ? "true" : "false"}
+          role="tab"
+        >
+          {t.label}
+        </button>
+      ))}
+      <span id="lineup-indicator" class="lineup-indicator" aria-hidden="true"></span>
+    </div>
   </div>
 
   <div class="lineup-panels">
@@ -76,6 +79,7 @@ function ariaLabel(title: string) {
           class="lineup-panel"
           data-panel={t.key}
           data-active={t.key === defaultTab ? "true" : "false"}
+          role="tabpanel"
         >
           <div class="lineup-grid">
             {list.map((p) => (
@@ -85,6 +89,7 @@ function ariaLabel(title: string) {
                     src={`/images/lineup/${t.key}/${p.id}.png`}
                     alt={p.title}
                     class="h-full w-full object-cover"
+                    loading="lazy"
                   />
 
                   {p.badge === "NEW" && (
@@ -116,13 +121,12 @@ function ariaLabel(title: string) {
                     </div>
 
                     <a
-  href={productHref(getProductSlug(p))}
-  class="lineup-arrow"
-  aria-label={ariaLabel(p.title)}
->
-  →
-</a>
-
+                      href={productHref(getProductSlug(p))}
+                      class="lineup-arrow"
+                      aria-label={ariaLabel(p.title)}
+                    >
+                      →
+                    </a>
                   </div>
                 </div>
               </article>
@@ -146,6 +150,13 @@ function ariaLabel(title: string) {
     margin-top: 60px;
   }
 
+  /* =========================
+     Tabbar (PC: 그대로 / SP: 横スク)
+  ========================= */
+  .lineup-tabbar-wrap{
+    width: 100%;
+  }
+
   .lineup-tabbar{
     width: 100%;
     max-width: 1200px;
@@ -154,10 +165,11 @@ function ariaLabel(title: string) {
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; /* PCは現状維持 */
     gap: 40px;
     padding-bottom: 20px;
     border-bottom: 1px solid #222222;
+    white-space: nowrap;
   }
 
   .lineup-tab{
@@ -192,6 +204,9 @@ function ariaLabel(title: string) {
   .lineup-panel{ display: none; }
   .lineup-panel[data-active="true"]{ display: block; }
 
+  /* =========================
+     Grid / Card (PC固定 그대로)
+  ========================= */
   .lineup-grid{
     width: 100%;
     max-width: 1152px;
@@ -200,6 +215,7 @@ function ariaLabel(title: string) {
     grid-template-columns: repeat(3, 355.33px);
     column-gap: 40px;
     row-gap: 40px;
+    justify-content: center;
   }
 
   .lineup-card{
@@ -280,15 +296,15 @@ function ariaLabel(title: string) {
     padding-top: 15px;
   }
 
-  /* ✅ タグ：丸と文字の中央揃え + gap 3px、タグ同士 18px */
   .tag-list{
     display: flex;
     gap: 18px;
   }
   .tag-item{
     display: inline-flex;
-    align-items: center; /* ← これで縦軸中央 */
-    gap: 3px;            /* ← 丸と文字の距離 */
+    align-items: center;
+    gap: 3px;
+    min-width: 0;
   }
   .tag-dot{
     width: 6px;
@@ -305,6 +321,9 @@ function ariaLabel(title: string) {
     letter-spacing: 0.8px;
     color: #E0E0E0;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 120px;
   }
 
   .lineup-arrow{
@@ -321,6 +340,74 @@ function ariaLabel(title: string) {
     letter-spacing: 0.8px;
     color: #fff;
     text-decoration: none;
+  }
+
+  /* =========================
+     Responsive (PCは無変更 / 960以下〜)
+  ========================= */
+  @media (max-width: 960px){
+    :global(#lineup-tabs){
+      padding-top: 56px;
+      padding-bottom: 110px;
+    }
+    :global(#lineup-tabs .lineup-panels){
+      margin-top: 40px;
+    }
+
+    /* グリッドを可変に（2列→1列へ） */
+    .lineup-grid{
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: 24px;
+      row-gap: 24px;
+      max-width: 100%;
+    }
+    .lineup-card{
+      width: 100%;
+    }
+    .lineup-card-body{
+      height: auto;
+      min-height: 210px; /* 見た目の安定 */
+    }
+    .lineup-tags{
+      width: calc(100% - 52px); /* 右の矢印40 + gap分を確保 */
+    }
+  }
+
+  @media (max-width: 640px){
+    /* ✅ タブバーを横スクロールにする（PCは影響なし） */
+    .lineup-tabbar-wrap{
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .lineup-tabbar-wrap::-webkit-scrollbar{
+      height: 0;
+    }
+    .lineup-tabbar{
+      justify-content: flex-start; /* SPだけ左寄せ */
+      width: max-content;
+      min-width: 100%;
+      gap: 22px;
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    /* 1列に */
+    .lineup-grid{
+      grid-template-columns: 1fr;
+      column-gap: 0;
+    }
+
+    .lineup-card-image{
+      height: 220px;
+    }
+
+    .lineup-desc{
+      font-size: 13.2px;
+      line-height: 23.5px;
+    }
+    .tag-text{
+      max-width: 140px;
+    }
   }
 </style>
 
@@ -351,10 +438,19 @@ function ariaLabel(title: string) {
       const activeBtn = tabs.find((b) => b.dataset.tab === key);
       if (!activeBtn) return;
 
+      // indicator position (tabbarがスクロールしてもOK)
       const barRect = tabbar.getBoundingClientRect();
       const btnRect = activeBtn.getBoundingClientRect();
       const centerX = (btnRect.left - barRect.left) + (btnRect.width / 2);
       indicator.style.left = centerX + "px";
+
+      // ✅ SP時：アクティブタブが見える位置へ軽く寄せる
+      const wrap = tabbar.parentElement;
+      if (wrap && wrap.scrollWidth > wrap.clientWidth + 2) {
+        const wrapRect = wrap.getBoundingClientRect();
+        const target = activeBtn.offsetLeft + (activeBtn.offsetWidth / 2) - (wrapRect.width / 2);
+        wrap.scrollTo({ left: Math.max(0, target), behavior: "smooth" });
+      }
     };
 
     tabs.forEach((btn) => {
@@ -365,14 +461,27 @@ function ariaLabel(title: string) {
       });
     });
 
+    // 初期
     setActive("all");
-    window.addEventListener("resize", () => {
+
+    // リサイズ/ロードで位置再計算
+    const recalc = () => {
       const current = tabs.find((t) => t.dataset.active === "true");
       setActive(current?.dataset.tab || "all");
-    });
-    window.addEventListener("load", () => {
+    };
+    window.addEventListener("resize", recalc);
+    window.addEventListener("load", recalc);
+
+    // ✅ タブバー横スク時もインジケータ追従
+    const wrap = tabbar.parentElement;
+    wrap?.addEventListener?.("scroll", () => {
       const current = tabs.find((t) => t.dataset.active === "true");
-      setActive(current?.dataset.tab || "all");
-    });
+      if (!current) return;
+
+      const barRect = tabbar.getBoundingClientRect();
+      const btnRect = current.getBoundingClientRect();
+      const centerX = (btnRect.left - barRect.left) + (btnRect.width / 2);
+      indicator.style.left = centerX + "px";
+    }, { passive: true });
   })();
 </script>

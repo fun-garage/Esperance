@@ -8,16 +8,25 @@ import PageHero from "../components/PageHero.astro";
 
   <!-- Intro copy block -->
   <section class="bg-[#050505]">
-    <div class="mx-auto max-w-[1440px] px-[24px]">
-      <div class="mx-auto mt-[70px] w-[800px] text-center">
-        <h2 class="font-[Noto_Serif_JP] text-[24px] font-bold leading-[38.4px] tracking-[0.8px] text-[#F0F0F0]">
+    <div class="mx-auto max-w-[1440px] px-[24px] max-[640px]:px-[16px]">
+      <div class="mx-auto mt-[70px] w-[800px] text-center max-[960px]:w-full">
+        <h2
+          class="font-[Noto_Serif_JP] text-[24px] font-bold leading-[38.4px] tracking-[0.8px] text-[#F0F0F0]
+                 max-[640px]:text-[20px] max-[640px]:leading-[32px]"
+        >
           失われた設計図を、<br />
           最新技術で「再定義」する。
         </h2>
 
-        <div class="mx-auto mt-[20px] w-[480px] border-t-2 border-[#D32F2F]"></div>
+        <div
+          class="mx-auto mt-[20px] w-[480px] border-t-2 border-[#D32F2F]
+                 max-[640px]:w-[240px]"
+        ></div>
 
-        <p class="mt-[22px] font-[Noto_Sans_JP] text-[16px] font-[350] leading-[28.8px] tracking-[0.8px] text-[#E0E0E0]">
+        <p
+          class="mt-[22px] font-[Noto_Sans_JP] text-[16px] font-[350] leading-[28.8px] tracking-[0.8px] text-[#E0E0E0]
+                 max-[640px]:text-[14px] max-[640px]:leading-[26px]"
+        >
           私たちの強みは、単なる金型製造ではありません。<br />
           リバースエンジニアリングによる「復元」、流動解析による「最適化」、<br />
           そして熟練の職人による「仕上げ」。<br />
@@ -27,32 +36,38 @@ import PageHero from "../components/PageHero.astro";
     </div>
   </section>
 
-  <!-- Tech blocks (2段だけ) -->
+  <!-- Tech blocks -->
   <section class="bg-[#050505]">
     <div class="mx-auto max-w-[1440px] px-[24px] pb-[120px] pt-[80px]">
       <div class="mx-auto flex max-w-[1200px] flex-col gap-[90px]">
 
         <!-- 1段目：画像 → テキスト -->
-        <div class="mx-auto flex w-full max-w-[1200px] items-center gap-[98px] px-[20px]">
+        <div
+          class="mx-auto flex w-full max-w-[1200px] items-center gap-[98px] px-[20px]
+                 max-[960px]:flex-col max-[960px]:items-stretch max-[960px]:gap-[28px] max-[960px]:px-0"
+        >
           <!-- 画像枠（580×363） -->
-<!-- 画像枠（580×363） -->
-<div class="relative h-[363px] w-[580px]">
-    <!-- 右上（22×22 / border top+right 2px） -->
-    <div class="pointer-events-none absolute right-[12px] top-[12px] h-[22px] w-[22px] border-r-2 border-t-2 border-[#D32F2F]"></div>
-  
-    <img
-      src="/images/technology/img1-tech.png"
-      alt="Reverse Engineering"
-      class="h-full w-full object-cover"
-    />
-  
-    <!-- 左下（22×22 / border bottom+left 2px） -->
-    <div class="pointer-events-none absolute bottom-[12px] left-[12px] h-[22px] w-[22px] border-b-2 border-l-2 border-[#D32F2F]"></div>
-  </div>
-  
+          <div
+            class="relative h-[363px] w-[580px]
+                   max-[960px]:w-full max-[960px]:h-[320px]
+                   max-[640px]:h-[220px]"
+          >
+            <div class="pointer-events-none absolute right-[12px] top-[12px] h-[22px] w-[22px] border-r-2 border-t-2 border-[#D32F2F]"></div>
+
+            <img
+              src="/images/technology/img1-tech.png"
+              alt="Reverse Engineering"
+              class="h-full w-full object-cover"
+            />
+
+            <div class="pointer-events-none absolute bottom-[12px] left-[12px] h-[22px] w-[22px] border-b-2 border-l-2 border-[#D32F2F]"></div>
+          </div>
 
           <!-- テキスト枠（522×358） -->
-          <div class="flex h-[358px] w-[522px] flex-col gap-[9px]">
+          <div
+            class="flex h-[358px] w-[522px] flex-col gap-[9px]
+                   max-[960px]:w-full max-[960px]:h-auto"
+          >
             <p class="font-[Oswald] text-[14px] font-normal leading-[25.92px] tracking-[1.4px] text-[#D32F2F] uppercase">
               REVERSE ENGINEERING
             </p>
@@ -90,9 +105,15 @@ import PageHero from "../components/PageHero.astro";
         </div>
 
         <!-- 2段目：テキスト → 画像 -->
-        <div class="mx-auto flex w-full max-w-[1200px] items-center gap-[98px] px-[20px]">
+        <div
+          class="mx-auto flex w-full max-w-[1200px] items-center gap-[98px] px-[20px]
+                 max-[960px]:flex-col max-[960px]:items-stretch max-[960px]:gap-[28px] max-[960px]:px-0"
+        >
           <!-- テキスト枠 -->
-          <div class="flex h-[358px] w-[522px] flex-col gap-[9px]">
+          <div
+            class="flex h-[358px] w-[522px] flex-col gap-[9px]
+                   max-[960px]:w-full max-[960px]:h-auto max-[960px]:order-2"
+          >
             <p class="font-[Oswald] text-[14px] font-normal leading-[25.92px] tracking-[1.4px] text-[#D32F2F] uppercase">
               MOLD DESIGN &amp; CAE
             </p>
@@ -129,176 +150,175 @@ import PageHero from "../components/PageHero.astro";
           </div>
 
           <!-- 画像枠 -->
-<!-- 画像枠（580×363） -->
-<div class="relative h-[363px] w-[580px]">
-    <!-- 右上（22×22 / border top+right 2px） -->
-    <div class="pointer-events-none absolute right-[12px] top-[12px] h-[22px] w-[22px] border-r-2 border-t-2 border-[#D32F2F]"></div>
-  
-    <img
-      src="/images/technology/img2-tech.png"
-      alt="Reverse Engineering"
-      class="h-full w-full object-cover"
-    />
-  
-    <!-- 左下（22×22 / border bottom+left 2px） -->
-    <div class="pointer-events-none absolute bottom-[12px] left-[12px] h-[22px] w-[22px] border-b-2 border-l-2 border-[#D32F2F]"></div>
-  </div>
-  
+          <div
+            class="relative h-[363px] w-[580px]
+                   max-[960px]:w-full max-[960px]:h-[320px] max-[960px]:order-1
+                   max-[640px]:h-[220px]"
+          >
+            <div class="pointer-events-none absolute right-[12px] top-[12px] h-[22px] w-[22px] border-r-2 border-t-2 border-[#D32F2F]"></div>
+
+            <img
+              src="/images/technology/img2-tech.png"
+              alt="Reverse Engineering"
+              class="h-full w-full object-cover"
+            />
+
+            <div class="pointer-events-none absolute bottom-[12px] left-[12px] h-[22px] w-[22px] border-b-2 border-l-2 border-[#D32F2F]"></div>
+          </div>
         </div>
 
-                <!-- 3段目：画像 → テキスト -->
-                <div class="mx-auto flex w-full max-w-[1200px] items-center gap-[98px] px-[20px]">
-                    <!-- 画像枠（580×363） -->
-<!-- 画像枠（580×363） -->
-<div class="relative h-[363px] w-[580px]">
-    <!-- 右上（22×22 / border top+right 2px） -->
-    <div class="pointer-events-none absolute right-[12px] top-[12px] h-[22px] w-[22px] border-r-2 border-t-2 border-[#D32F2F]"></div>
-  
-    <img
-      src="/images/technology/img3-tech.png"
-      alt="Reverse Engineering"
-      class="h-full w-full object-cover"
-    />
-  
-    <!-- 左下（22×22 / border bottom+left 2px） -->
-    <div class="pointer-events-none absolute bottom-[12px] left-[12px] h-[22px] w-[22px] border-b-2 border-l-2 border-[#D32F2F]"></div>
-  </div>
-  
-          
-                    <!-- テキスト枠（522×358） -->
-                    <div class="flex h-[358px] w-[522px] flex-col gap-[9px]">
-                      <p class="font-[Oswald] text-[14px] font-normal leading-[25.92px] tracking-[1.4px] text-[#D32F2F] uppercase">
-                        PRECISION MANUFACTURING
-                      </p>
-          
-                      <h3 class="font-[Noto_Sans_JP] text-[32px] font-bold leading-[41.6px] tracking-[0.8px] text-white">
-                        5軸加工・仕上げ
-                      </h3>
-          
-                      <p class="mt-[10px] font-[Noto_Sans_JP] text-[16px] font-[350] leading-[28.8px] tracking-[0.8px] text-[#E0E0E0]">
-                        KATANA特有の有機的な曲線を再現するために、同時5軸制御のマシニングセンタを使用。
-                        複雑なアンダーカット形状も、ワンチャッキングで高精度に削り出します。
-                        最後は職人の手による鏡面磨きで、金型の表面を極限まで滑らかに仕上げます。
-                      </p>
-          
-                      <div class="mt-[18px] w-full border-t border-[#333333]">
-                        <div class="flex items-center justify-between border-b border-[#333333] py-[15px]">
-                          <p class="font-[Oswald] text-[14.4px] font-bold leading-[25.92px] tracking-[0.8px] text-[#D32F2F]">
-                            MACHINE
-                          </p>
-                          <p class="font-[Noto_Sans_JP] text-[14.4px] font-[350] leading-[25.92px] tracking-[0.8px] text-[#F0F0F0]">
-                            5-Axis Machining Center
-                          </p>
-                        </div>
-          
-                        <div class="flex items-center justify-between border-b border-[#333333] py-[15px]">
-                          <p class="font-[Oswald] text-[14.4px] font-bold leading-[25.92px] tracking-[0.8px] text-[#D32F2F]">
-                            FINISH
-                          </p>
-                          <p class="font-[Noto_Sans_JP] text-[14.4px] font-[350] leading-[25.92px] tracking-[0.8px] text-[#F0F0F0]">
-                            Mirror Polishing
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-          
+        <!-- 3段目：画像 → テキスト -->
+        <div
+          class="mx-auto flex w-full max-w-[1200px] items-center gap-[98px] px-[20px]
+                 max-[960px]:flex-col max-[960px]:items-stretch max-[960px]:gap-[28px] max-[960px]:px-0"
+        >
+          <!-- 画像枠（580×363） -->
+          <div
+            class="relative h-[363px] w-[580px]
+                   max-[960px]:w-full max-[960px]:h-[320px]
+                   max-[640px]:h-[220px]"
+          >
+            <div class="pointer-events-none absolute right-[12px] top-[12px] h-[22px] w-[22px] border-r-2 border-t-2 border-[#D32F2F]"></div>
+
+            <img
+              src="/images/technology/img3-tech.png"
+              alt="Reverse Engineering"
+              class="h-full w-full object-cover"
+            />
+
+            <div class="pointer-events-none absolute bottom-[12px] left-[12px] h-[22px] w-[22px] border-b-2 border-l-2 border-[#D32F2F]"></div>
+          </div>
+
+          <!-- テキスト枠（522×358） -->
+          <div
+            class="flex h-[358px] w-[522px] flex-col gap-[9px]
+                   max-[960px]:w-full max-[960px]:h-auto"
+          >
+            <p class="font-[Oswald] text-[14px] font-normal leading-[25.92px] tracking-[1.4px] text-[#D32F2F] uppercase">
+              PRECISION MANUFACTURING
+            </p>
+
+            <h3 class="font-[Noto_Sans_JP] text-[32px] font-bold leading-[41.6px] tracking-[0.8px] text-white">
+              5軸加工・仕上げ
+            </h3>
+
+            <p class="mt-[10px] font-[Noto_Sans_JP] text-[16px] font-[350] leading-[28.8px] tracking-[0.8px] text-[#E0E0E0]">
+              KATANA特有の有機的な曲線を再現するために、同時5軸制御のマシニングセンタを使用。
+              複雑なアンダーカット形状も、ワンチャッキングで高精度に削り出します。
+              最後は職人の手による鏡面磨きで、金型の表面を極限まで滑らかに仕上げます。
+            </p>
+
+            <div class="mt-[18px] w-full border-t border-[#333333]">
+              <div class="flex items-center justify-between border-b border-[#333333] py-[15px]">
+                <p class="font-[Oswald] text-[14.4px] font-bold leading-[25.92px] tracking-[0.8px] text-[#D32F2F]">
+                  MACHINE
+                </p>
+                <p class="font-[Noto_Sans_JP] text-[14.4px] font-[350] leading-[25.92px] tracking-[0.8px] text-[#F0F0F0]">
+                  5-Axis Machining Center
+                </p>
+              </div>
+
+              <div class="flex items-center justify-between border-b border-[#333333] py-[15px]">
+                <p class="font-[Oswald] text-[14.4px] font-bold leading-[25.92px] tracking-[0.8px] text-[#D32F2F]">
+                  FINISH
+                </p>
+                <p class="font-[Noto_Sans_JP] text-[14.4px] font-[350] leading-[25.92px] tracking-[0.8px] text-[#F0F0F0]">
+                  Mirror Polishing
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
 
       </div>
     </div>
   </section>
 
-    <!-- WORKFLOW -->
-    <section class="bg-[#050505] border-t border-[#222222]">
-        <!-- 大枠（1440 / 上下100 / gap 60） -->
-        <div class="mx-auto max-w-[1440px] py-[100px]">
-          <div class="flex flex-col gap-[60px]">
-            <!-- 見出しインナー -->
-            <div class="text-center">
-              <p class="font-[Oswald] text-[16px] font-normal leading-[28.8px] tracking-[1.6px] text-[#D32F2F] uppercase">
-                WORKFLOW
-              </p>
-              <h2 class="mt-[6px] font-[Noto_Sans_JP] text-[32px] font-bold leading-[57.6px] tracking-[0.8px] text-white">
-                製作プロセス
-              </h2>
-            </div>
-    
-            <!-- プロセスインナー（max 1000 / 左右20 / between） -->
-            <div class="mx-auto w-full max-w-[1000px] px-[20px]">
-              <div class="relative">
-                <!-- 背面ライン（インナー幅の80%くらい / 2px） -->
-                <div class="pointer-events-none absolute left-[-15px] right-[-15px] top-[40px] h-[2px] bg-[#333333]"></div>
+  <!-- WORKFLOW -->
+  <section class="bg-[#050505] border-t border-[#222222]">
+    <div class="mx-auto max-w-[1440px] py-[100px]">
+      <div class="flex flex-col gap-[60px]">
+        <div class="text-center">
+          <p class="font-[Oswald] text-[16px] font-normal leading-[28.8px] tracking-[1.6px] text-[#D32F2F] uppercase">
+            WORKFLOW
+          </p>
+          <h2 class="mt-[6px] font-[Noto_Sans_JP] text-[32px] font-bold leading-[57.6px] tracking-[0.8px] text-white">
+            製作プロセス
+          </h2>
+        </div>
 
+        <!-- ✅ SPだけ横スク（PC見た目は完全にそのまま） -->
+        <div class="mx-auto w-full max-w-[1000px] px-[20px] max-[640px]:px-[16px]">
+          <div class="relative max-[640px]:overflow-x-auto max-[640px]:-mx-[16px] max-[640px]:px-[16px]">
+            <div class="relative">
+              <div class="pointer-events-none absolute left-[-15px] right-[-15px] top-[40px] h-[2px] bg-[#333333]"></div>
 
+              <div class="relative z-10 flex items-start justify-between max-[640px]:min-w-[860px]">
+                <!-- Step 01 -->
+                <div class="flex w-[200px] flex-col items-center text-center">
+                  <div class="relative flex h-[80px] w-[80px] items-center justify-center rounded-full border border-[#333333] bg-[#111111]">
+                    <span class="font-[Oswald] text-[24px] font-normal leading-[43.2px] tracking-[0.8px] text-[#D32F2F]">
+                      01
+                    </span>
+                  </div>
+                  <p class="mt-[14px] font-[Noto_Sans_JP] text-[16px] font-bold leading-[28.8px] tracking-[0.8px] text-white">
+                    3D SCAN
+                  </p>
+                  <p class="mt-[6px] font-[Noto_Sans_JP] text-[12.8px] font-[350] leading-[20.48px] tracking-[0.8px] text-[#E0E0E0]">
+                    実物をスキャンし<br />点群データを取得
+                  </p>
+                </div>
 
-    
-                <!-- 4ステップ -->
-                <div class="relative z-10 flex items-start justify-between">
-                  <!-- Step 01 -->
-                  <div class="flex w-[200px] flex-col items-center text-center">
-                    <div class="relative flex h-[80px] w-[80px] items-center justify-center rounded-full border border-[#333333] bg-[#111111]">
-                      <span class="font-[Oswald] text-[24px] font-normal leading-[43.2px] tracking-[0.8px] text-[#D32F2F]">
-                        01
-                      </span>
-                    </div>
-                    <p class="mt-[14px] font-[Noto_Sans_JP] text-[16px] font-bold leading-[28.8px] tracking-[0.8px] text-white">
-                      3D SCAN
-                    </p>
-                    <p class="mt-[6px] font-[Noto_Sans_JP] text-[12.8px] font-[350] leading-[20.48px] tracking-[0.8px] text-[#E0E0E0]">
-                      実物をスキャンし<br />点群データを取得
-                    </p>
+                <!-- Step 02 -->
+                <div class="flex w-[200px] flex-col items-center text-center">
+                  <div class="relative flex h-[80px] w-[80px] items-center justify-center rounded-full border border-[#333333] bg-[#111111]">
+                    <span class="font-[Oswald] text-[24px] font-normal leading-[43.2px] tracking-[0.8px] text-[#D32F2F]">
+                      02
+                    </span>
                   </div>
-    
-                  <!-- Step 02 -->
-                  <div class="flex w-[200px] flex-col items-center text-center">
-                    <div class="relative flex h-[80px] w-[80px] items-center justify-center rounded-full border border-[#333333] bg-[#111111]">
-                      <span class="font-[Oswald] text-[24px] font-normal leading-[43.2px] tracking-[0.8px] text-[#D32F2F]">
-                        02
-                      </span>
-                    </div>
-                    <p class="mt-[14px] font-[Noto_Sans_JP] text-[16px] font-bold leading-[28.8px] tracking-[0.8px] text-white">
-                      CAD DATA
-                    </p>
-                    <p class="mt-[6px] font-[Noto_Sans_JP] text-[12.8px] font-[350] leading-[20.48px] tracking-[0.8px] text-[#E0E0E0]">
-                      データを解析し<br />CADデータを作成
-                    </p>
+                  <p class="mt-[14px] font-[Noto_Sans_JP] text-[16px] font-bold leading-[28.8px] tracking-[0.8px] text-white">
+                    CAD DATA
+                  </p>
+                  <p class="mt-[6px] font-[Noto_Sans_JP] text-[12.8px] font-[350] leading-[20.48px] tracking-[0.8px] text-[#E0E0E0]">
+                    データを解析し<br />CADデータを作成
+                  </p>
+                </div>
+
+                <!-- Step 03 -->
+                <div class="flex w-[200px] flex-col items-center text-center">
+                  <div class="relative flex h-[80px] w-[80px] items-center justify-center rounded-full border border-[#333333] bg-[#111111]">
+                    <span class="font-[Oswald] text-[24px] font-normal leading-[43.2px] tracking-[0.8px] text-[#D32F2F]">
+                      03
+                    </span>
                   </div>
-    
-                  <!-- Step 03 -->
-                  <div class="flex w-[200px] flex-col items-center text-center">
-                    <div class="relative flex h-[80px] w-[80px] items-center justify-center rounded-full border border-[#333333] bg-[#111111]">
-                      <span class="font-[Oswald] text-[24px] font-normal leading-[43.2px] tracking-[0.8px] text-[#D32F2F]">
-                        03
-                      </span>
-                    </div>
-                    <p class="mt-[14px] font-[Noto_Sans_JP] text-[16px] font-bold leading-[28.8px] tracking-[0.8px] text-white">
-                      MOLD
-                    </p>
-                    <p class="mt-[6px] font-[Noto_Sans_JP] text-[12.8px] font-[350] leading-[20.48px] tracking-[0.8px] text-[#E0E0E0]">
-                      金型を設計し<br />加工・製作
-                    </p>
+                  <p class="mt-[14px] font-[Noto_Sans_JP] text-[16px] font-bold leading-[28.8px] tracking-[0.8px] text-white">
+                    MOLD
+                  </p>
+                  <p class="mt-[6px] font-[Noto_Sans_JP] text-[12.8px] font-[350] leading-[20.48px] tracking-[0.8px] text-[#E0E0E0]">
+                    金型を設計し<br />加工・製作
+                  </p>
+                </div>
+
+                <!-- Step 04 -->
+                <div class="flex w-[200px] flex-col items-center text-center">
+                  <div class="relative flex h-[80px] w-[80px] items-center justify-center rounded-full border border-[#333333] bg-[#111111]">
+                    <span class="font-[Oswald] text-[24px] font-normal leading-[43.2px] tracking-[0.8px] text-[#D32F2F]">
+                      04
+                    </span>
                   </div>
-    
-                  <!-- Step 04 -->
-                  <div class="flex w-[200px] flex-col items-center text-center">
-                    <div class="relative flex h-[80px] w-[80px] items-center justify-center rounded-full border border-[#333333] bg-[#111111]">
-                      <span class="font-[Oswald] text-[24px] font-normal leading-[43.2px] tracking-[0.8px] text-[#D32F2F]">
-                        04
-                      </span>
-                    </div>
-                    <p class="mt-[14px] font-[Noto_Sans_JP] text-[16px] font-bold leading-[28.8px] tracking-[0.8px] text-white">
-                      PRODUCT
-                    </p>
-                    <p class="mt-[6px] font-[Noto_Sans_JP] text-[12.8px] font-[350] leading-[20.48px] tracking-[0.8px] text-[#E0E0E0]">
-                      試作成形と<br />品質検査・製品化
-                    </p>
-                  </div>
+                  <p class="mt-[14px] font-[Noto_Sans_JP] text-[16px] font-bold leading-[28.8px] tracking-[0.8px] text-white">
+                    PRODUCT
+                  </p>
+                  <p class="mt-[6px] font-[Noto_Sans_JP] text-[12.8px] font-[350] leading-[20.48px] tracking-[0.8px] text-[#E0E0E0]">
+                    試作成形と<br />品質検査・製品化
+                  </p>
                 </div>
               </div>
             </div>
-    
           </div>
         </div>
-      </section>
-    
+
+      </div>
+    </div>
+  </section>
 </BaseLayout>

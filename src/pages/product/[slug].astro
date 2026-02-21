@@ -129,8 +129,6 @@ const galleryImages = [
     margin-top: 80px; /* ✅ ProductHeroVisual と 商品詳細の間を 80px */
   }
 
-
-
   /* 枠：1200 / gap 60 */
   .pd-inner{
     width: 1200px;
@@ -138,7 +136,6 @@ const galleryImages = [
     margin: 0 auto;
     display: flex;
     gap: 60px;
-
   }
 
   /* 左：621.81 / gap 20 */
@@ -326,6 +323,79 @@ const galleryImages = [
     line-height: 25.6px;
     letter-spacing: 1.6px;
     text-transform: uppercase;
+  }
+
+  /* ==================================================
+     responsive（PC 1100px以上は一切変えない）
+     1100px未満だけ上書きで可変にする
+  ================================================== */
+  @media (max-width: 1100px) {
+    .pd-inner{
+      width: 100%;
+      height: auto;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .pd-gallery{
+      width: 100%;
+      height: auto;
+    }
+
+    .pd-main{
+      width: 100%;
+      height: auto;
+      aspect-ratio: 619.81 / 464.36; /* PC比率を維持 */
+    }
+
+    .pd-thumbs{
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .pd-info{
+      width: 100%;
+      height: auto;
+    }
+
+    .pd-spec{
+      width: 100%;
+      height: auto;
+    }
+
+    .pd-row{
+      width: 100%;
+      height: auto;
+      padding: 16px 0;
+    }
+
+    .pd-inquire{
+      width: 100%;
+      height: auto;
+      padding: 28px;
+    }
+
+    .pd-btn{
+      width: 100%;
+      max-width: 520px; /* タブレットで伸びすぎない保険 */
+    }
+  }
+
+  @media (max-width: 600px) {
+    .pd-section{
+      margin-top: 60px; /* スマホだけ詰めたいなら。PCは無関係 */
+    }
+
+    .pd-title{
+      font-size: 32px;
+      line-height: 36px;
+      letter-spacing: 3px;
+    }
+
+    .pd-thumb{
+      width: 72px;
+      height: 72px;
+    }
   }
 </style>
 

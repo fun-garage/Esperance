@@ -104,4 +104,32 @@ const {
     .phv-right{ align-items: center; }
     .phv-underline{ width: min(598px, 100%); }
   }
+
+  /* ===== SP only: underline position + flip ===== */
+@media (max-width: 640px) {
+  /* underline を載せている右カラム（親）を基準にする */
+  .phv-right {
+    position: relative;
+  }
+
+  /* 赤い underline.svg */
+  .phv-underline {
+    position: absolute;
+    left: 50%;
+    /* ↓ スクショの位置に近い開始値（必要なら微調整） */
+    bottom: 210px;
+
+    width: min(330px, 88%);
+    height: auto;
+
+    margin-top: 0; /* 元の margin-top を無効化 */
+    display: block;
+
+    /* ✅ 中央基準で配置 + ✅ 左右反転 */
+    transform: translateX(-50%) scaleX(-1);
+    transform-origin: center;
+    pointer-events: none;
+  }
+}
+
 </style>

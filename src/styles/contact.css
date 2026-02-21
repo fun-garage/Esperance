@@ -9,15 +9,15 @@
   margin: 80px auto;
 }
 
-/* 2カラム枠 */
+/* 2カラム枠（PCはこのまま） */
 .contact-form-inner {
-    width: fit-content;   /* ← 中身ぴったり */
-    margin: 0 auto;       /* ← 中央寄せ */
-  
-    display: flex;
-    gap: 60px;
-    align-items: flex-start;
-  }
+  width: fit-content;   /* ← PCの見た目維持 */
+  margin: 0 auto;       /* ← 中央寄せ */
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+}
+
 /* 左：356.8 */
 .contact-left {
   width: 356.8px;
@@ -202,39 +202,70 @@
 }
 
 html[lang="en"] .contact-info-value {
-    font-family: "Noto Sans JP", sans-serif;
-    font-weight: 500;
-    font-size: 15.6px;
-    line-height: 31.68px;
-    letter-spacing: 0.8px;
-    color: #ffffff;
-  }
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 500;
+  font-size: 15.6px;
+  line-height: 31.68px;
+  letter-spacing: 0.8px;
+  color: #ffffff;
+}
 
-/* responsive */
+/* =========================
+   responsive（PC不変 / 1100px未満だけ上書き）
+========================= */
 @media (max-width: 1100px) {
+  /* ✅ fit-content をやめて、画面幅を素直に使う（狭く見える原因を除去） */
   .contact-form-inner {
+    width: 100%;
+    max-width: 900px;     /* ← タブレットで読みやすい上限 */
+    margin: 0 auto;
     flex-direction: column;
     gap: 40px;
   }
 
-  .contact-left,
-  .contact-right,
-  .contact-fields,
-  .field-input,
-  .field-select,
-  .field-textarea,
-  .select-wrap {
-    width: 100%;
-    max-width: 700px;
+  /* ✅ スマホ時の「狭さ」は余白の二重取りが原因になりがちなので内側は薄く */
+  .contact-form {
+    margin: 56px auto; /* 80px→少しだけ詰める（スマホ感） */
   }
 
   .contact-left,
   .contact-right {
+    width: 100%;
     height: auto;
   }
 
+  /* ✅ 左の連絡先ブロックも幅100%へ */
   .contact-info,
   .contact-info-row {
     width: 100%;
+    height: auto;
+  }
+
+  /* ✅ フォーム一式を「画面いっぱい」へ（700px制限を撤廃して広く見せる） */
+  .contact-fields {
+    width: 100%;
+    height: auto;
+  }
+
+  .field-input,
+  .field-select,
+  .field-textarea,
+  .select-wrap,
+  .contact-submit {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+/* ✅ さらにスマホだけ、左右をもう少し広く見せたい場合（任意） */
+@media (max-width: 600px) {
+  /* 文章が詰まって見えるのを防ぐ */
+  .contact-note {
+    line-height: 1.9;
+  }
+
+  /* 送信ボタンの文字詰まり防止 */
+  .contact-submit {
+    letter-spacing: 2.4px;
   }
 }

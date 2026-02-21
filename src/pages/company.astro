@@ -65,9 +65,11 @@ import "../styles/company.css";
           </section>
         </div>
       </section>
+
       <section class="bg-[#050505]">
         <!-- 外枠（Tailwind） -->
-        <div class="mx-auto max-w-[1440px] px-[220px] pt-[100px] pb-[160px] mt-[80px] mb-[80px]">
+        <!-- PC(=lg以上)は元のpx-[220px]のまま / 小さい画面だけ縮める -->
+        <div class="mx-auto max-w-[1440px] px-[24px] sm:px-[48px] lg:px-[220px] pt-[100px] pb-[160px] mt-[80px] mb-[80px]">
 
           <!-- インナー -->
           <div class="cp-inner">
@@ -124,7 +126,8 @@ import "../styles/company.css";
 
       <section class="bg-[#050505]">
         <!-- 大枠 -->
-        <div class="mx-auto max-w-[1440px] px-[220px] pt-[100px] pb-[160px]">
+        <!-- PC(=lg以上)は元のpx-[220px]のまま / 小さい画面だけ縮める -->
+        <div class="mx-auto max-w-[1440px] px-[24px] sm:px-[48px] lg:px-[220px] pt-[100px] pb-[160px]">
           <!-- インナー -->
           <div class="hist-inner">
             <!-- 見出し -->
